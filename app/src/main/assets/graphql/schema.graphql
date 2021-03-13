@@ -1,0 +1,289 @@
+directive @specifiedBy(url: String!) on SCALAR
+type AllowedPlaces {
+    id: Int!
+    typePlace: String!
+    neighborhood: String
+    city: String
+    state: String
+    country: String
+    createdAt: String
+    updatedAt: String
+}
+
+type Comment {
+    id: Int!
+    at: Date!
+    body: String!
+    incident: Incident
+    user: User
+    isReported: Boolean
+    reportedAt: Date
+    userReported: User
+}
+
+input CreateAllowedPlaceInput {
+    typePlace: String!
+    neighborhood: String
+    city: String
+    state: String
+    country: String
+}
+
+input CreateCommentInput {
+    body: String!
+    incidentId: Int!
+}
+
+input CreateIncidentInput {
+    longitude: Float!
+    latitude: Float!
+    address: String!
+    title: String!
+    description: String!
+    city: String!
+    isStreamingLive: Boolean
+    at: Date
+    incidentsCategoryId: Int!
+}
+
+input CreateIncidentsCategoryInput {
+    title: String!
+    logoHq: String
+    logoAndroid: String
+}
+
+input CreateRateAppInput {
+    typeRating: TypeRating!
+}
+
+input CreateUpdateIncidentInput {
+    title: String!
+    incidentId: Int!
+}
+
+input CreateUserInput {
+    name: String!
+    lastName: String!
+    email: String!
+    password: String!
+    active: Boolean!
+    isHqAdmin: Boolean!
+}
+
+scalar Date
+
+type Incident {
+    id: Int!
+    at: Date!
+    longitude: Float!
+    latitude: Float!
+    address: String!
+    title: String!
+    description: String!
+    photo: String
+    thumbnail: String
+    video: String
+    city: String
+    updatesCount: Int!
+    commentsCount: Int!
+    updates: [Update!]
+    comments: [Comment]
+    finishedAt: Date
+    updatedAt: Date
+    deletedAt: Date
+    userCreate: User
+    userUpdate: User
+    userDelete: User
+    fearfulFaceReactions: Int!
+    handsPressedReactions: Int!
+    redAngryFaceReactions: Int!
+    redHeartReactions: Int!
+    videoStream: LiveStream
+    media: [IncidentMedia]
+    trending: Int!
+    pushNotificationsSent: Int!
+    category: IncidentsCategory
+    creationMode: String!
+}
+
+type IncidentMedia {
+    id: Int!
+    incidentId: Int!
+    typeContent: String!
+    url: String!
+    thumbnailUrl: String
+    createdAt: String
+    updatedAt: String
+    deletedAt: String
+    videoStream: LiveStream
+}
+
+type IncidentsCategory {
+    id: Int!
+    title: String!
+    logoHq: String
+    logoAndroid: String
+}
+
+type LiveStream {
+    id: Int!
+    incidentId: Int
+    token: String
+    channel: String
+    startedAt: Date
+    incident: Incident
+    sid: String!
+}
+
+type LiveStreamSubscriber {
+    uid: String!
+    token: String!
+    channel: String!
+}
+
+type Mutation {
+    createAllowedPlace(input: CreateAllowedPlaceInput!): AllowedPlaces!
+    updateAllowedPlace(
+        input: CreateAllowedPlaceInput!
+        allowedPlaceId: Int!
+    ): AllowedPlaces!
+    deleteAllowedPlace(allowedPlaceId: Int!): Int!
+    addCommentToIncident(input: CreateCommentInput!): Comment
+    deleteCommentFromIncident(incidentId: Int!, commentId: Int!): Int
+    setReportedComment(incidentId: Int!, commentId: Int!): Comment
+    setApprovedComment(incidentId: Int!, commentId: Int!): Comment
+    createIncidentsCategory(
+        input: CreateIncidentsCategoryInput!
+    ): IncidentsCategory
+    deleteIncidentsCategory(incidentsCategoryId: Int!): IncidentsCategory
+    updateIncidentsCategory(
+        input: UpdateIncidentsCategoryInput!
+        incidentsCategoryId: Int!
+    ): IncidentsCategory
+    createIncident(input: CreateIncidentInput!): Incident!
+    finishIncident(incidentId: Int!): Incident!
+    deleteIncident(incidentId: Int!): Incident!
+    updateIncident(input: UpdateIncidentInput!, incidentId: Int!): Incident!
+    deleteLiveStream(arn: String!): Boolean
+    createRateApp(input: CreateRateAppInput!): RateApp
+    updateRateApp(input: UpdateRateAppInput!, rateId: Int!): RateApp
+    deleteRateApp(rateId: Int!): Int
+    addReaction(input: ReactionInput!): Incident
+    createUpdate(input: CreateUpdateIncidentInput!): Update
+    updateUpdate(input: CreateUpdateIncidentInput!, updateId: Int!): Update
+    deleteUpdate(updateId: Int!): ResponseDetroy!
+    createUser(input: CreateUserInput!, photo: Upload): User
+    deleteUser(userId: String!): User
+    updateUser(input: UpdateUserInput!, userId: String!, photo: Upload): User
+}
+
+type Query {
+    getAllowedPlaces: [AllowedPlaces]
+    getAllowedPlaceById(id: Int): AllowedPlaces
+    getComments: [Comment]
+    getCommentsByIncidentId(id: Int): [Comment]
+    getIncidentsCategories: [IncidentsCategory]
+    getIncidentsCategoriesById(id: Int): IncidentsCategory
+    getIncidents(
+        first: Int
+        baseKey: String
+        onlyLive: Boolean
+        all: Boolean
+    ): [Incident]
+    getIncidentsNotPagination(all: Boolean): [Incident]
+    getIncidentsNotLive: [Incident]
+    getIncidentsOrder(orderBy: String, typeOrder: String): [Incident]
+    getIncidentById(id: Int): Incident
+    getAllLiveStreams: [LiveStream]!
+    joinLiveChannel(channel: String!): LiveStreamSubscriber!
+    getAllRateApps: [RateApp]
+    getRateAppById(id: Int): RateApp
+    getUpdatesForIncidentId(id: Int): [Update]
+    getUsers: [User]
+    getUserById(id: String): User
+}
+
+type RateApp {
+    id: Int!
+    at: Date!
+    typeRating: TypeRating!
+    user: User
+}
+
+enum Reaction {
+    FEARFUL_FACE
+    HANDS_PRESSED_TOGETHER
+    RED_ANGRY_FACE
+    RED_HEART
+}
+
+input ReactionInput {
+    reaction: Reaction!
+    incidentId: Int!
+}
+
+type ResponseDetroy {
+    deleted: Boolean!
+}
+
+enum TypeRating {
+    positive
+    negative
+}
+
+type Update {
+    id: Int!
+    at: Date!
+    title: String!
+    incident: Incident!
+    user: User!
+    userUpdate: User!
+}
+
+input UpdateIncidentInput {
+    longitude: Float!
+    latitude: Float!
+    title: String!
+    description: String!
+    address: String!
+    at: Date!
+    city: String!
+    incidentsCategoryId: Int!
+}
+
+input UpdateIncidentsCategoryInput {
+    title: String!
+    logoHq: String
+    logoAndroid: String
+}
+
+input UpdateRateAppInput {
+    typeRating: TypeRating!
+}
+
+input UpdateUserInput {
+    name: String
+    lastName: String
+    email: String
+    password: String
+    active: Boolean
+    isHqAdmin: Boolean
+    isPrivateAccount: Boolean
+}
+
+scalar Upload
+
+type User {
+    id: ID!
+    name: String!
+    lastName: String!
+    email: String!
+    photo: String
+    thumbnail: String
+    active: Boolean!
+    isHqAdmin: Boolean!
+    isPrivateAccount: Boolean!
+    deletedAt: Date
+    userDelete: User
+    userRates: [RateApp]
+}

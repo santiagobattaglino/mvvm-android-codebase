@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4bace9</color>
+    <color name="colorPrimaryLight">#85deff</color>
+    <color name="colorPrimaryDark">#007db6</color>
+    <color name="colorSecondary">#f5f5f5</color>
+    <color name="colorSecondaryLight">#bcbcbc</color>
+    <color name="colorSecondaryDark">#c2c2c2</color>
+    <color name="colorBackground">#2B2B2B</color>
+    <color name="colorBackgroundContainer">#121212</color>
+    <color name="colorHeaderText">#F2F2F2</color>
+    <color name="colorBackground80">#cc2B2B2B</color>
+    <color name="colorBackground50">#882B2B2B</color>
+    <color name="colorBackground10">#222B2B2B</color>
+    <color name="colorError">#ff0000</color>
+
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorDark">#2B3840</color>
+    <color name="colorDark50">#802B3840</color>
+    <color name="colorDarkLight">#72797e</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- Bottom Bar -->
+    <color name="bottomBackground">#2B2B2B</color>
+    <color name="bottomBarIcon">#545454</color>
+    <color name="bottomBarIconActive">#E8E8E8</color>
+
+    <!-- Incident Circle -->
+    <color name="incident_circle_fill">#6BD7E5</color>
+    <color name="incident_circle_stroke">#545454</color>
+
+    <!-- Bottom Bar Incident -->
+    <color name="bottomBarIncident">#1c1c1c</color>
+
+    <color name="updateDotColor">#F2994A</color>
+    <color name="btnLiveStart">#EB2E2E</color>
+    <color name="btnLiveEnd">#FF665C</color>
+
+    <color name="liveColor">#EB5757</color>
+    <color name="black_half_transparent">#66000000</color>
+    <color name="black_full_transparent">#22000000</color>
+    <color name="blue_medium">#44A2FC</color>
+    <color name="incident_card_background">#1E1E1E</color>
+    <color name="colorSeparator">#22F2F2F2</color>
+    <color name="colorEditText">#F2F2F2</color>
+    <color name="colorEditTextHint">#828282</color>
+    <color name="colorEditTextLabel">#BCBCBC</color>
+    <color name="colorStrokeBtn">#4F4F4F</color>
+    <color name="colorIconBtn">#E0E0E0</color>
+    <color name="btnCreateIncidentEnd">#78B2FF</color>
+    <color name="btnCreateIncidentStart">#2E7FEB</color>
+    <color name="colorMediaWindow">#323232</color>
+    <color name="colorDisabledText">#888888</color>
+</resources>

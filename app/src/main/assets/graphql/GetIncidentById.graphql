@@ -1,0 +1,49 @@
+query getIncidentById($id: Int) {
+    getIncidentById(id: $id) {
+        id
+        at
+        longitude
+        latitude
+        address
+        title
+        description
+        photo
+        thumbnail
+        video
+        city
+        updatesCount
+        commentsCount
+        userCreate {
+            id
+            name
+            lastName
+            email
+            isPrivateAccount
+        }
+        fearfulFaceReactions
+        handsPressedReactions
+        redAngryFaceReactions
+        redHeartReactions
+        videoStream {
+            token
+            channel
+            sid
+            startedAt
+        }
+        media {
+            id
+            typeContent
+            url
+            thumbnailUrl
+            videoStream {
+                token
+                channel
+                sid
+                startedAt
+            }
+        }
+        updatedAt
+        deletedAt
+        finishedAt
+    }
+}

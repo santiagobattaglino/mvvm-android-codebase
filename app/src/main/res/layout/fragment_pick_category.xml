@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pick_category_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackgroundContainer">
+
+    <ImageView
+        android:id="@+id/help"
+        android:layout_width="26dp"
+        android:layout_height="26dp"
+        android:layout_marginEnd="24dp"
+        android:contentDescription="@string/category_picker_title"
+        android:src="@drawable/ic_help"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_top"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/TextTopTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="@string/category_picker_title"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/texts_container"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_margin="@dimen/margin_container"
+        android:padding="@dimen/padding_container"
+        app:layout_constraintBottom_toTopOf="@id/guideline_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_top">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/category_grid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:spanCount="4"
+            tools:listitem="@layout/item_category">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/upload_an_incident"
+        style="@style/TextHeader3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_container"
+        android:layout_marginEnd="@dimen/margin_container"
+        android:layout_marginBottom="@dimen/inner_margin_container"
+        android:background="@drawable/ripple_transparent_0"
+        android:clickable="true"
+        android:enabled="false"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="@string/upload_an_incident"
+        android:textColor="@color/incident_circle_stroke"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@id/start_live_streaming"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_bottom" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/start_live_streaming"
+        style="@style/MaterialButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_container"
+        android:layout_marginTop="@dimen/margin_container"
+        android:layout_marginEnd="@dimen/margin_container"
+        android:background="@drawable/selector_broadcast_btn"
+        android:enabled="false"
+        android:text="@string/start_live_streaming"
+        android:textColor="@color/colorDisabledText"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/upload_an_incident" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

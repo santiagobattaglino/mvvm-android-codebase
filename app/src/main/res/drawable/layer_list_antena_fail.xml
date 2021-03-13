@@ -1,0 +1,9 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/fill_antena" />
+    <item android:drawable="@drawable/ic_antena" />
+    <item
+        android:bottom="-70dp"
+        android:drawable="@drawable/ic_fail"
+        android:gravity="center"
+        android:right="-40dp" />
+</layer-list>

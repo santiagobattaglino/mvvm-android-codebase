@@ -1,0 +1,215 @@
+<resources>
+
+    <style name="AppThemeNoActionBar" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@color/colorBackground</item>
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="actionOverflowButtonStyle">@style/MyOverflowButtonStyle</item>
+
+        <!-- specify shared element transitions -->
+        <item name="android:windowSharedElementEnterTransition">@android:transition/fade</item>
+        <item name="android:windowSharedElementExitTransition">@android:transition/fade</item>
+    </style>
+
+    <style name="PrimaryWhite">
+        <item name="colorPrimary">@color/colorWhite</item>
+        <item name="colorAccent">@color/colorWhite</item>
+    </style>
+
+    <style name="FullScreenDialogStyle" parent="Theme.MaterialComponents.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+
+        <!-- Set this to true if you want Full Screen without status bar -->
+        <item name="android:windowFullscreen">false</item>
+
+        <item name="android:windowIsFloating">true</item>
+
+        <!-- Additionally if you want animations when dialog opening -->
+        <item name="android:windowEnterAnimation">@android:anim/slide_in_left</item>
+        <item name="android:windowExitAnimation">@android:anim/slide_out_right</item>
+    </style>
+
+    <style name="TextTopTitle" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/text_header_3</item>
+    </style>
+
+    <style name="TextHeader3" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/colorHeaderText</item>
+        <item name="android:textSize">@dimen/text_header_3</item>
+    </style>
+
+    <style name="TextHeader4" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/colorHeaderText</item>
+        <item name="android:textSize">@dimen/text_header_4</item>
+    </style>
+
+    <style name="TextTime" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">@dimen/text_time</item>
+    </style>
+
+    <style name="TextLive" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/roboto_black</item>
+        <item name="android:fontFamily">@font/roboto_black</item>
+        <item name="android:textColor">@color/liveColor</item>
+        <item name="android:textSize">@dimen/text_live</item>
+    </style>
+
+    <style name="TextDistance" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/liveColor</item>
+        <item name="android:textSize">@dimen/text_live</item>
+    </style>
+
+    <style name="TextTitle" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textSize">@dimen/text_title</item>
+    </style>
+
+    <style name="TextTimeComment" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/colorDarkLight</item>
+        <item name="android:textSize">@dimen/text_time_comment</item>
+    </style>
+
+    <style name="MainTextStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/colorSecondaryLight</item>
+        <item name="android:textSize">@dimen/main_text_size</item>
+    </style>
+
+    <style name="DescriptionTextStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/colorHeaderText</item>
+        <item name="android:textSize">@dimen/description_text_size</item>
+    </style>
+
+    <style name="EmojiTextStyle" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/colorSecondaryLight</item>
+        <item name="android:textSize">@dimen/main_text_size</item>
+    </style>
+
+    <style name="TextTimeUpdate" parent="TextTime">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/colorDarkLight</item>
+    </style>
+
+    <style name="TextUserNameComment" parent="TextTime">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/colorSecondaryLight</item>
+    </style>
+
+    <style name="ErrorTextStyle" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:gravity">bottom</item>
+        <item name="android:textSize">11sp</item>
+    </style>
+
+    <style name="TextAddress" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textSize">@dimen/text_address</item>
+    </style>
+
+    <style name="TextLabel" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/colorEditTextLabel</item>
+        <item name="android:textSize">@dimen/text_label</item>
+    </style>
+
+    <style name="TextInputEditText" parent="Widget.AppCompat.EditText">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/colorEditText</item>
+        <item name="android:textSize">@dimen/text_edit</item>
+    </style>
+
+    <style name="MaterialButton" parent="Widget.MaterialComponents.Button">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/text_button</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:paddingTop">@dimen/button_padding</item>
+        <item name="android:paddingBottom">@dimen/button_padding</item>
+        <item name="backgroundTint">@null</item>
+    </style>
+
+    <style name="TextTutorial" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/colorHeaderText</item>
+        <item name="android:textSize">@dimen/text_tutorial</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+    </style>
+
+    <style name="TextDescription" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/roboto_regular</item>
+        <item name="android:fontFamily">@font/roboto_regular</item>
+        <item name="android:textColor">@color/colorHeaderText</item>
+        <item name="android:textSize">@dimen/text_header_4</item>
+        <item name="android:lineSpacingMultiplier">1.1</item>
+    </style>
+
+    <style name="TabLayout" parent="Widget.MaterialComponents.TabLayout">
+        <item name="tabTextAppearance">@style/TabLayout.TextAppearance</item>
+        <item name="android:background">@color/colorBackground</item>
+    </style>
+
+    <style name="TabLayout.TextAppearance" parent="TextAppearance.AppCompat.Button">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="MaterialToolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="android:background">@color/colorBackground</item>
+        <item name="layout_scrollFlags">scroll|enterAlways|snap</item>
+        <item name="navigationIcon">@drawable/ic_menu_back</item>
+        <item name="titleTextColor">@color/colorWhite</item>
+        <item name="android:elevation">0dp</item>
+    </style>
+
+    <style name="MyOverflowButtonStyle" parent="Widget.AppCompat.ActionButton.Overflow">
+        <item name="android:tint">@color/colorWhite</item>
+    </style>
+
+    <style name="AlertDialog" parent="Theme.MaterialComponents.Dialog.Alert">
+
+    </style>
+
+    <style name="Switch" parent="TextAppearance.AppCompat.Widget.Switch">
+        <item name="fontFamily">@font/roboto_bold</item>
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/colorSecondaryLight</item>
+    </style>
+
+    <dimen name="text_button">16sp</dimen>
+    <dimen name="button_padding">14dp</dimen>
+</resources>

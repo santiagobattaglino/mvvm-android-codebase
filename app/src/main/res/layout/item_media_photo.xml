@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/go_to_photo"
+    android:layout_width="52dp"
+    android:layout_height="52dp"
+    android:layout_marginStart="8dp"
+    app:cardBackgroundColor="@color/colorBackground"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="4dp"
+    app:cardForegroundColor="@color/transparent"
+    app:strokeColor="@color/colorEditText"
+    app:strokeWidth="1dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/photo"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/incident_photo"
+            android:scaleType="center" />
+
+        <ImageView
+            android:id="@+id/remove_media"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="4dp"
+            android:background="@drawable/ripple_transparent_50"
+            android:clickable="true"
+            android:contentDescription="@string/close"
+            android:focusable="true"
+            android:padding="3dp"
+            android:src="@drawable/ic_close" />
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

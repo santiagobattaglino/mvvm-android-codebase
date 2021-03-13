@@ -1,0 +1,5 @@
+mutation ReportComments($incidentId: Int!, $commentId: Int!) {
+    setReportedComment(incidentId: $incidentId, commentId: $commentId) {
+        id
+    }
+}

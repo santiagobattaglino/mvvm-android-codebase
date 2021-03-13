@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="text_header_3">18sp</dimen>
+    <dimen name="text_header_4">16sp</dimen>
+    <dimen name="text_tutorial">14sp</dimen>
+    <dimen name="text_time">12sp</dimen>
+    <dimen name="text_live">11sp</dimen>
+    <dimen name="text_title">20sp</dimen>
+    <dimen name="text_address">12sp</dimen>
+    <dimen name="text_label">12sp</dimen>
+    <dimen name="text_edit">14sp</dimen>
+    <dimen name="ripple_action_radius">4dp</dimen>
+    <dimen name="top_controller_radius">20dp</dimen>
+    <dimen name="text_time_comment">11sp</dimen>
+    <dimen name="main_text_size">12sp</dimen>
+    <dimen name="description_text_size">15sp</dimen>
+    <dimen name="margin_container">24sp</dimen>
+    <dimen name="padding_container">24sp</dimen>
+    <dimen name="inner_margin_container">32sp</dimen>
+
+    <!-- Live Activity -->
+    <dimen name="live_top_layout_height">76dp</dimen>
+    <dimen name="live_top_layout_margin">22dp</dimen>
+    <dimen name="live_name_board_radius">10dp</dimen>
+    <dimen name="live_name_text_height">24dp</dimen>
+    <dimen name="dimen_8">8dp</dimen>
+    <dimen name="live_bottom_layout_margin">18dp</dimen>
+    <dimen name="live_bottom_btn_margin">12dp</dimen>
+    <dimen name="live_stat_margin_bottom">68dp</dimen>
+    <dimen name="cat_icon_size">32dp</dimen>
+</resources>

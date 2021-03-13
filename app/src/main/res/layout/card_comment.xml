@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_comment"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dimen_8"
+    android:layout_marginTop="@dimen/dimen_8"
+    android:layout_marginEnd="@dimen/dimen_8"
+    android:layout_marginBottom="0dp"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    android:paddingStart="@dimen/dimen_8"
+    android:paddingEnd="@dimen/dimen_8">
+
+    <RelativeLayout
+        android:id="@+id/dot_layout"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/content_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/dot"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/comments"
+            android:src="@drawable/ic_nav_profile_active" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/content_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dimen_8"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/menu_layout"
+        app:layout_constraintStart_toEndOf="@id/dot_layout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/comment_user_name"
+            style="@style/TextUserNameComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="4dp"
+            tools:text="UserName" />
+
+        <TextView
+            android:id="@+id/comment_time"
+            style="@style/TextTimeComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_toEndOf="@id/comment_user_name"
+            android:paddingTop="2dp"
+            tools:text="10:33 am" />
+
+        <TextView
+            android:id="@+id/comment_title"
+            style="@style/MainTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/comment_time"
+            android:layout_marginTop="10dp"
+            android:includeFontPadding="false"
+            tools:text="Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum. Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum. Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum. Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum, Lorem Ipsum" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/menu_layout"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="@dimen/dimen_8"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/content_layout"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/menu"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:contentDescription="@string/more"
+            android:src="@drawable/ic_more"
+            app:tint="@color/colorWhite" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

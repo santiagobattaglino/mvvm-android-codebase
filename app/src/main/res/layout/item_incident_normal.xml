@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_incident_normal_container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/dimen_8"
+    android:layout_marginTop="@dimen/dimen_8"
+    android:layout_marginEnd="@dimen/dimen_8"
+    android:layout_marginBottom="0dp"
+    android:background="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/incident_card_background"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/content_layout_normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/dimen_8"
+            android:paddingTop="@dimen/dimen_8"
+            android:paddingEnd="0dp"
+            android:paddingBottom="@dimen/dimen_8"
+            app:layout_constraintBottom_toTopOf="@+id/normal_separator"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/normal_distance"
+                style="@style/TextDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:textColor="@color/updateDotColor"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="2.1 km" />
+
+            <TextView
+                android:id="@+id/normal_time"
+                style="@style/TextDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:textColor="@color/updateDotColor"
+                app:layout_constraintStart_toEndOf="@+id/normal_distance"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text=" - Updated A minute ago" />
+
+            <TextView
+                android:id="@+id/normal_title"
+                style="@style/TextTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="marquee"
+                android:maxLines="2"
+                app:layout_constraintEnd_toStartOf="@+id/normal_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/normal_distance"
+                tools:text="Incident Title. Long Title very very long title with multiple lines. \nTitle" />
+
+            <TextView
+                android:id="@+id/normal_ocurred_time"
+                style="@style/TextDistance"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@+id/normal_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/normal_title"
+                tools:text="Occurred on 12/12/2020 at 14:08" />
+
+            <TextView
+                android:id="@+id/normal_address"
+                style="@style/TextAddress"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/normal_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/normal_ocurred_time"
+                tools:text="Rua Ministro Raul Fernandez, 180, Botafogo" />
+
+            <TextView
+                android:id="@+id/normal_description"
+                style="@style/DescriptionTextStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="end"
+                android:maxLines="2"
+                app:layout_constraintEnd_toStartOf="@+id/normal_image"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/normal_address"
+                tools:text="Very, very very long description. Only two lines. Incident Description. Incident Resume Description. Incident Resume Description. Incident." />
+
+            <ImageView
+                android:id="@+id/normal_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/dimen_8"
+                android:contentDescription="@string/incidents"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/normal_title"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/normal_separator"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/colorSeparator"
+            app:layout_constraintBottom_toTopOf="@id/normal_bottom_bar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/content_layout_normal" />
+
+        <include
+            android:id="@+id/normal_bottom_bar"
+            layout="@layout/include_incident_bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bottomBarIncident"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/normal_separator" />
+
+        <ImageView
+            android:id="@+id/normal_close"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginTop="@dimen/dimen_8"
+            android:layout_marginEnd="@dimen/dimen_8"
+            android:background="@drawable/ripple_transparent_10"
+            android:clickable="true"
+            android:contentDescription="@string/close"
+            android:focusable="true"
+            android:padding="4dp"
+            android:src="@drawable/ic_close"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

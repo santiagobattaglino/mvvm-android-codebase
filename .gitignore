@@ -1,0 +1,6 @@
+.gradle
+.idea
+_extras
+build
+*.iml
+keystore.properties

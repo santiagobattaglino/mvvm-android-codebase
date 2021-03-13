@@ -1,0 +1,12 @@
+mutation CreateRateApp($input: CreateRateAppInput!) {
+    createRateApp(input: $input) {
+        id
+        at
+        typeRating
+        user {
+            id
+            email
+            name
+        }
+    }
+}

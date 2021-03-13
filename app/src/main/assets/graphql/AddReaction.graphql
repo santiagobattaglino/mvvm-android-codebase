@@ -1,0 +1,9 @@
+mutation AddReaction($input: ReactionInput!) {
+    addReaction(input: $input) {
+        id
+        fearfulFaceReactions
+        handsPressedReactions
+        redAngryFaceReactions
+        redHeartReactions
+    }
+}

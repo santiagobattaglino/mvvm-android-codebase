@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="loading_texts">
+        <item>Loading text 1…</item>
+        <item>Loading text 2…</item>
+        <item>Loading text 3…</item>
+        <item>Loading text 4…</item>
+    </string-array>
+</resources>

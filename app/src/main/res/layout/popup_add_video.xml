@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/item_incident_live_container"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="4dp"
+    app:cardForegroundColor="@color/transparent">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fill_popup_media_window"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            style="@style/TextAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/take_video"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/take_video"
+            style="@style/TextAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:drawableStart="@drawable/ic_camera_video_circle"
+            android:drawablePadding="16dp"
+            android:gravity="center_vertical"
+            android:paddingStart="0dp"
+            android:paddingEnd="70dp"
+            android:text="@string/open_camera"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/pick_video"
+            style="@style/TextAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:drawableStart="@drawable/ic_gallery_circle"
+            android:drawablePadding="16dp"
+            android:gravity="center_vertical"
+            android:paddingStart="0dp"
+            android:paddingEnd="70dp"
+            android:text="@string/choose_from_gallery"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

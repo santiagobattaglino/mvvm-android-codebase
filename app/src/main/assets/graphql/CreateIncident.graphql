@@ -1,0 +1,26 @@
+mutation CreateIncident($input: CreateIncidentInput!) {
+    createIncident(input: $input) {
+        id
+        at
+        title
+        description
+        latitude
+        longitude
+        address
+        city
+        userCreate {
+            id
+            email
+            name
+        }
+        videoStream {
+            token
+            channel
+            sid
+        }
+        updatedAt
+        category {
+            id
+        }
+    }
+}

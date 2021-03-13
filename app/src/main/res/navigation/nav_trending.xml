@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/trending_graph"
+    app:startDestination="@id/trending"
+    tools:ignore="UnusedNavigation">
+    <fragment
+        android:id="@+id/trending"
+        android:name="com.santiagobattaglino.mvvm.codebase.presentation.ui.incidents.trending.TrendingFragment"
+        android:label="Trending"
+        tools:layout="@layout/fragment_trending">
+        <action
+            android:id="@+id/trending_to_ended"
+            app:destination="@+id/broadcast_ended_fragment" />
+        <action
+            android:id="@+id/trending_to_stoped"
+            app:destination="@+id/broadcast_stoped_hq_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/broadcast_ended_fragment"
+        android:name="com.santiagobattaglino.mvvm.codebase.presentation.ui.incidents.broadcast.BroadcastEndedFragment"
+        android:label="Broadcast Ended"
+        tools:layout="@layout/fragment_broadcast_ended_broadcaster">
+        <action
+            android:id="@+id/ended_to_home"
+            app:destination="@+id/incidents_graph"
+            app:launchSingleTop="true" />
+    </fragment>
+    <include app:graph="@navigation/nav_incidents" />
+    <fragment
+        android:id="@+id/broadcast_stoped_hq_fragment"
+        android:name="com.santiagobattaglino.mvvm.codebase.presentation.ui.incidents.broadcast.BroadcastStopedHqFragment"
+        android:label="Broadcast Stoped HQ"
+        tools:layout="@layout/fragment_broadcast_stoped_hq">
+        <action
+            android:id="@+id/stoped_to_home"
+            app:destination="@+id/incidents_graph"
+            app:launchSingleTop="true" />
+    </fragment>
+</navigation>

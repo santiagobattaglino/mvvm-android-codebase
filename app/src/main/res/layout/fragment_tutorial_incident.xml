@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tutorial_incident_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackgroundContainer">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.7" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/texts_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_container"
+        android:background="@drawable/fill_tutorial_container"
+        android:padding="@dimen/padding_container"
+        app:layout_constraintBottom_toTopOf="@id/guideline_bottom"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_top">
+
+        <TextView
+            android:id="@+id/how_it_works"
+            style="@style/TextHeader3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/inner_margin_container"
+            android:gravity="center"
+            android:text="@string/how_it_works"
+            app:layout_constraintBottom_toTopOf="@id/layout_tutorial_texts"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/layout_tutorial_texts"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/how_it_works">
+
+            <TextView
+                android:id="@+id/tutorial_incident_text_1"
+                style="@style/TextTutorial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/inner_margin_container"
+                android:drawablePadding="@dimen/padding_container"
+                android:gravity="center_vertical"
+                android:text="@string/tutorial_incident_text_1"
+                app:drawableStartCompat="@drawable/ic_eye" />
+
+            <TextView
+                android:id="@+id/tutorial_incident_text_2"
+                style="@style/TextTutorial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/inner_margin_container"
+                android:drawablePadding="@dimen/padding_container"
+                android:gravity="center_vertical"
+                android:text="@string/tutorial_incident_text_2"
+                app:drawableStartCompat="@drawable/ic_camera" />
+
+            <TextView
+                android:id="@+id/tutorial_incident_text_3"
+                style="@style/TextTutorial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:drawablePadding="@dimen/padding_container"
+                android:gravity="center_vertical"
+                android:text="@string/tutorial_incident_text_3"
+                app:drawableStartCompat="@drawable/ic_hands_heart" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/close"
+        style="@style/MaterialButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_container"
+        android:layout_marginTop="@dimen/margin_container"
+        android:layout_marginEnd="@dimen/margin_container"
+        android:background="@drawable/fill_live_streaming_btn"
+        android:text="@string/close"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guideline_bottom" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

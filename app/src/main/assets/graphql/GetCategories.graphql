@@ -1,0 +1,6 @@
+query GetCategories {
+    getIncidentsCategories {
+        id
+        title
+    }
+}

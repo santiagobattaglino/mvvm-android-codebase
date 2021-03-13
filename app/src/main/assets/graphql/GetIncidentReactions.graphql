@@ -1,0 +1,8 @@
+query getIncidentReactions($id: Int) {
+    getIncidentById(id: $id) {
+        fearfulFaceReactions
+        handsPressedReactions
+        redAngryFaceReactions
+        redHeartReactions
+    }
+}

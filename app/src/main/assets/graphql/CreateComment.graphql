@@ -1,0 +1,12 @@
+mutation CreateComment($input: CreateCommentInput!) {
+    addCommentToIncident(input: $input) {
+        id
+        at
+        body
+        user {
+            id
+            email
+            name
+        }
+    }
+}

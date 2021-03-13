@@ -1,0 +1,13 @@
+query GetUpdates($incidentId: Int!) {
+    getUpdatesForIncidentId(id: $incidentId) {
+        id
+        at
+        title
+        incident {
+            id
+        }
+        user {
+            id
+        }
+    }
+}

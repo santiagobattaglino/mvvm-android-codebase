@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ripple_acctions"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="horizontal"
+    android:padding="@dimen/dimen_8">
+
+    <ImageView
+        android:id="@+id/share_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:contentDescription="@string/share"
+        android:src="@drawable/ic_share"
+        app:tint="@color/colorWhite" />
+
+    <TextView
+        android:id="@+id/share"
+        style="@style/MainTextStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="2dp"
+        android:includeFontPadding="false"
+        android:text="@string/share"
+        android:textSize="18sp"
+        app:textAllCaps="true" />
+
+</LinearLayout>

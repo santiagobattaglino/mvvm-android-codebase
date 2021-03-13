@@ -1,0 +1,39 @@
+query getIncidents($first: Int, $baseKey: String, $onlyLive: Boolean) {
+    getIncidents(first: $first, baseKey: $baseKey, onlyLive: $onlyLive) {
+        id
+        at
+        longitude
+        latitude
+        address
+        title
+        description
+        thumbnail
+        video
+        city
+        updatesCount
+        commentsCount
+        fearfulFaceReactions
+        handsPressedReactions
+        redAngryFaceReactions
+        redHeartReactions
+        media {
+            id
+            typeContent
+            url
+            thumbnailUrl
+            videoStream {
+                token
+                channel
+                sid
+                startedAt
+            }
+        }
+        updatedAt
+        videoStream {
+            token
+            channel
+            sid
+            startedAt
+        }
+    }
+}
