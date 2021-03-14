@@ -134,4 +134,5 @@
     <string name="error_generic">Last name or name empty. Password too long or too short.</string>
     <string name="error_description_too_long">Description too long</string>
     <string name="stock_by_user">Stock By User</string>
+    <string name="products">Products</string>
 </resources>

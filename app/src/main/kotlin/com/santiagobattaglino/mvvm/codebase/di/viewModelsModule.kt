@@ -11,4 +11,5 @@ val viewModelsModule = module {
     viewModel { UpdatesViewModel(get()) }
     viewModel { NotificationsViewModel(get()) }
     viewModel { StockViewModel(get()) }
+    viewModel { ProductViewModel(get()) }
 }

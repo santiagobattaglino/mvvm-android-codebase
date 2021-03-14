@@ -3,6 +3,7 @@ package com.santiagobattaglino.mvvm.codebase.data.network.api
 import com.santiagobattaglino.mvvm.codebase.data.network.error.ErrorResponse
 import com.santiagobattaglino.mvvm.codebase.domain.entity.Login
 import com.haroldadmin.cnradapter.NetworkResponse
+import com.santiagobattaglino.mvvm.codebase.domain.entity.Product
 import com.santiagobattaglino.mvvm.codebase.domain.entity.Stock
 import com.santiagobattaglino.mvvm.codebase.domain.model.*
 import com.santiagobattaglino.mvvm.codebase.domain.model.interiorefimero.StockByUserResponse
@@ -167,6 +168,9 @@ interface Api {
     ): NetworkResponse<GraphContainer<CreateRateAppResponse>, ErrorResponse>
 
     // INTERIOREFIMERO
+
+    @GET("api/v1/products")
+    suspend fun getProducts(): NetworkResponse<List<Product>, ErrorResponse>
 
     @GET("api/v1/stock/user/{userId}")
     suspend fun getStockByUser(

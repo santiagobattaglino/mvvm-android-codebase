@@ -1,11 +1,11 @@
 package com.santiagobattaglino.mvvm.codebase.data.room
 
-import com.santiagobattaglino.mvvm.codebase.util.Constants
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.santiagobattaglino.mvvm.codebase.data.room.dao.*
 import com.santiagobattaglino.mvvm.codebase.domain.entity.*
+import com.santiagobattaglino.mvvm.codebase.util.Constants
 
 @Database(
     entities = [
@@ -14,7 +14,8 @@ import com.santiagobattaglino.mvvm.codebase.domain.entity.*
         Comment::class,
         Update::class,
         Notification::class,
-        Stock::class
+        Stock::class,
+        Product::class
     ],
     version = Constants.DB_VERSION
 )
@@ -26,4 +27,5 @@ abstract class Database : RoomDatabase() {
     abstract fun updateDAO(): UpdateDAO
     abstract fun notificationDAO(): NotificationDAO
     abstract fun stockDAO(): StockDAO
+    abstract fun productDAO(): ProductDAO
 }

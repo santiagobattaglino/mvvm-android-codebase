@@ -7,7 +7,7 @@ object Constants {
 
     // DB
     const val DB_NAME = "efimero-db"
-    const val DB_VERSION = 1
+    const val DB_VERSION = 2
 
     // IMAGES
     const val DOWNSAMPLE_SIZE = 480
