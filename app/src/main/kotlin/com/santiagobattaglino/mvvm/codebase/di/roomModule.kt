@@ -13,6 +13,8 @@ import com.santiagobattaglino.mvvm.codebase.data.repository.update.UpdateRepoRoo
 import com.santiagobattaglino.mvvm.codebase.data.room.Database
 import com.santiagobattaglino.mvvm.codebase.util.Constants
 import androidx.room.Room
+import com.santiagobattaglino.mvvm.codebase.data.repository.stock.StockRepo
+import com.santiagobattaglino.mvvm.codebase.data.repository.stock.StockRepoRoomImpl
 import org.koin.android.ext.koin.androidApplication
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
@@ -58,6 +60,13 @@ val roomModule = module {
         )
     }
 
+    single<StockRepo> {
+        StockRepoRoomImpl(
+            get(named("RetrofitRest")),
+            get()
+        )
+    }
+
     single {
         Room.databaseBuilder(androidApplication(), Database::class.java, Constants.DB_NAME)
             .fallbackToDestructiveMigration()
@@ -69,4 +78,5 @@ val roomModule = module {
     single { get<Database>().commentDAO() }
     single { get<Database>().updateDAO() }
     single { get<Database>().notificationDAO() }
+    single { get<Database>().stockDAO() }
 }

@@ -134,4 +134,5 @@
     <string name="error_empty_name_or_last_name">Sobrenome ou nome vazio</string>
     <string name="error_generic">Sobrenome ou nome vazio. Senha muito longa ou muito curta.</string>
     <string name="error_description_too_long">Descrição muito longa</string>
+    <string name="stock_by_user">Stock By User</string>
 </resources>

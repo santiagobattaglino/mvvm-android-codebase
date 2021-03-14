@@ -16,29 +16,28 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.santiagobattaglino.mvvm.codebase.R
 import com.santiagobattaglino.mvvm.codebase.data.repository.SharedPreferenceUtils
-import com.santiagobattaglino.mvvm.codebase.domain.entity.Incident
+import com.santiagobattaglino.mvvm.codebase.domain.entity.Stock
 import com.santiagobattaglino.mvvm.codebase.domain.model.AddReactionRequest
 import com.santiagobattaglino.mvvm.codebase.domain.model.WebSocketMessage
 import com.santiagobattaglino.mvvm.codebase.presentation.ui.base.BaseFragment
-import com.santiagobattaglino.mvvm.codebase.presentation.ui.incidents.detail.IncidentDetailActivity
-import com.santiagobattaglino.mvvm.codebase.presentation.ui.incidents.map.IncidentAdapter
+import com.santiagobattaglino.mvvm.codebase.presentation.ui.stock.adapter.StockAdapter
 import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.IncidentsViewModel
+import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.StockViewModel
 import com.santiagobattaglino.mvvm.codebase.util.Arguments
-import com.santiagobattaglino.mvvm.codebase.util.Constants.PAGE_SIZE
 import kotlinx.android.synthetic.main.fragment_trending.*
-import org.jetbrains.anko.intentFor
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class TrendingFragment : BaseFragment(), IncidentAdapter.OnViewHolderClick {
+class TrendingFragment : BaseFragment(), StockAdapter.OnViewHolderClick {
 
     private val mTag = javaClass.simpleName
 
     private val incidentsViewModel: IncidentsViewModel by viewModel()
+    private val stockViewModel: StockViewModel by viewModel()
     private val sp: SharedPreferenceUtils by inject()
-    private lateinit var incidents: List<Incident>
+    private lateinit var stockByUser: List<Stock>
 
-    private lateinit var adapter: IncidentAdapter
+    private lateinit var adapter: StockAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -51,11 +50,7 @@ class TrendingFragment : BaseFragment(), IncidentAdapter.OnViewHolderClick {
     override fun onPrimaryNavigationFragmentChanged(isPrimaryNavigationFragment: Boolean) {
         super.onPrimaryNavigationFragmentChanged(isPrimaryNavigationFragment)
         if (isPrimaryNavigationFragment) {
-            incidentsViewModel.getTrendingIncidents(
-                sp.getString(Arguments.ARG_LAST_KNOWN_LOCATION),
-                PAGE_SIZE,
-                null
-            )
+            stockViewModel.getStockByUser(2)
         }
     }
 
@@ -69,15 +64,16 @@ class TrendingFragment : BaseFragment(), IncidentAdapter.OnViewHolderClick {
     }
 
     private fun observeTrendingIncidents() {
-        incidentsViewModel.trendingIncidentsUiData.observe(this, {
+        stockViewModel.stockByUserUiData.observe(this, {
             it.error?.let { error ->
                 handleError(mTag, error)
             }
 
-            it.incidents?.let { incidents ->
-                this.incidents = incidents
-                empty_text.isVisible = incidents.isEmpty()
-                adapter.mData = incidents
+            it.stockByUser?.let { stockByUser ->
+                this.stockByUser = stockByUser
+                empty_text.isVisible = stockByUser.isEmpty()
+                adapter.mData = stockByUser
+                adapter.notifyDataSetChanged()
             }
         })
     }
@@ -94,7 +90,7 @@ class TrendingFragment : BaseFragment(), IncidentAdapter.OnViewHolderClick {
             activity?.onBackPressed()
         }
 
-        adapter = IncidentAdapter(this)
+        adapter = StockAdapter(this)
         trending_list.adapter = adapter
         trending_list.layoutManager = LinearLayoutManager(
             context,
@@ -107,21 +103,17 @@ class TrendingFragment : BaseFragment(), IncidentAdapter.OnViewHolderClick {
             if (v.getChildAt(v.childCount - 1) != null) {
                 if (scrollY >= v.getChildAt(v.childCount - 1).measuredHeight - v.measuredHeight && scrollY > oldScrollY
                 ) {
-                    incidentsViewModel.getTrendingIncidents(
-                        sp.getString(Arguments.ARG_LAST_KNOWN_LOCATION),
-                        PAGE_SIZE,
-                        incidents[incidents.lastIndex].updatedAt
-                    )
+                    stockViewModel.getStockByUser(2)
                 }
             }
         })
     }
 
-    override fun dataViewClickFromList(view: View, position: Int, data: Incident) {
+    override fun dataViewClickFromList(view: View, position: Int, data: Stock) {
         adapter.popupWindow?.dismiss()
         when (view.id) {
             R.id.item_incident_live_container -> {
-                if (data.videoStream == null) {
+                /*if (data.quantity == null) {
                     context?.startActivity(
                         context?.intentFor<IncidentDetailActivity>(
                             Arguments.ARG_INCIDENT_ID to data.id
@@ -129,7 +121,7 @@ class TrendingFragment : BaseFragment(), IncidentAdapter.OnViewHolderClick {
                     )
                 } else {
 
-                }
+                }*/
             }
             R.id.layout_reaction_1 -> {
                 incidentsViewModel.addReaction(

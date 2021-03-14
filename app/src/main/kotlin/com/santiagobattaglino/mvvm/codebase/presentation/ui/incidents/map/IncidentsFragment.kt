@@ -1,14 +1,5 @@
 package com.santiagobattaglino.mvvm.codebase.presentation.ui.incidents.map
 
-import com.santiagobattaglino.mvvm.codebase.data.repository.SharedPreferenceUtils
-import com.santiagobattaglino.mvvm.codebase.domain.entity.Incident
-import com.santiagobattaglino.mvvm.codebase.domain.model.AddReactionRequest
-import com.santiagobattaglino.mvvm.codebase.presentation.ui.FullScreenDialog
-import com.santiagobattaglino.mvvm.codebase.presentation.ui.base.BasePermissionFragment
-import com.santiagobattaglino.mvvm.codebase.presentation.ui.comments.CommentsActivity
-import com.santiagobattaglino.mvvm.codebase.presentation.ui.incidents.detail.IncidentDetailActivity
-import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.IncidentsViewModel
-import com.santiagobattaglino.mvvm.codebase.util.Constants.PAGE_SIZE
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
@@ -27,9 +18,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.appbar.AppBarLayout
-import com.santiagobattaglino.mvvm.codebase.BuildConfig
 import com.santiagobattaglino.mvvm.codebase.R
+import com.santiagobattaglino.mvvm.codebase.data.repository.SharedPreferenceUtils
+import com.santiagobattaglino.mvvm.codebase.domain.entity.Incident
+import com.santiagobattaglino.mvvm.codebase.domain.model.AddReactionRequest
+import com.santiagobattaglino.mvvm.codebase.presentation.ui.FullScreenDialog
+import com.santiagobattaglino.mvvm.codebase.presentation.ui.base.BasePermissionFragment
+import com.santiagobattaglino.mvvm.codebase.presentation.ui.comments.CommentsActivity
+import com.santiagobattaglino.mvvm.codebase.presentation.ui.incidents.detail.IncidentDetailActivity
+import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.IncidentsViewModel
 import com.santiagobattaglino.mvvm.codebase.util.*
+import com.santiagobattaglino.mvvm.codebase.util.Constants.PAGE_SIZE
 import kotlinx.android.synthetic.main.fragment_incidents.*
 import kotlinx.android.synthetic.main.include_incident_bottom_bar.*
 import kotlinx.android.synthetic.main.include_layout_comments.*
@@ -37,7 +36,6 @@ import kotlinx.android.synthetic.main.include_layout_reactions.*
 import kotlinx.android.synthetic.main.item_incident_normal.*
 import kotlinx.android.synthetic.main.popup_reactions.view.*
 import org.jetbrains.anko.intentFor
-import org.jetbrains.anko.share
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.ocpsoft.prettytime.PrettyTime
@@ -346,14 +344,14 @@ class IncidentsFragment : BasePermissionFragment(), IncidentAdapter.OnViewHolder
 
         share_layout.setOnClickListener {
             val time = getAtLocalTime(incident.at)
-            context?.share(
+            /*context?.share(
                 "${incident.title}\n" +
                         "${incident.description}\n" +
                         "${incident.address}\n" +
                         "$time\n" +
                         "\n" +
                         "${BuildConfig.HQ_BASE_URL}/#/deeplinks/incidents/${incident.id}"
-            )
+            )*/
         }
     }
 

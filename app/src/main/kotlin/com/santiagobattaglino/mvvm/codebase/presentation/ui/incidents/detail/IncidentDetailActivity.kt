@@ -354,14 +354,14 @@ class IncidentDetailActivity : BaseActivity(), UpdateAdapter.OnViewHolderClick,
 
         share_layout.setOnClickListener {
             val time = getAtLocalTime(incident.at)
-            share(
+            /*share(
                 "${incident.title}\n" +
                         "${incident.description}\n" +
                         "${incident.address}\n" +
                         "$time\n" +
                         "\n" +
                         "${BuildConfig.HQ_BASE_URL}/#/deeplinks/incidents/${incident.id}"
-            )
+            )*/
 
             /*val content: ShareLinkContent = ShareLinkContent.Builder()
                 .setQuote("lelele")

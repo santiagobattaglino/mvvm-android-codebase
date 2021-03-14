@@ -83,7 +83,8 @@ class BottomNavActivity : BaseActivity() {
     private fun setupNavigation() {
         bottom_navigation.setupWithNavController(
             navGraphIds = listOf(
-                R.navigation.nav_incidents,
+                R.navigation.nav_stock,
+                //R.navigation.nav_incidents,
                 R.navigation.nav_trending,
                 R.navigation.nav_add_incident,
                 R.navigation.nav_notifications,

@@ -64,10 +64,7 @@ android {
             minifyEnabled false
             shrinkResources false
             signingConfig signingConfigs.debug
-            resValue "string", "GOOGLE_MAPS_KEY", "AIzaSyDTbwQ3bIBR2-V8yn0LA1yFpYlvVVvHvtg"
-            buildConfigField "String", "API_BASE_URL", "\"http://ec2-3-21-212-215.us-east-2.compute.amazonaws.com:8080\""
-            buildConfigField "String", "AGORA_PRIVATE_APP_ID", "\"6de8f98c1e0b4cbba29fae86068c59bd\""
-            buildConfigField "String", "HQ_BASE_URL", "\"http://ec2-18-223-172-79.us-east-2.compute.amazonaws.com\""
+            buildConfigField "String", "API_BASE_URL", "\"http://192.168.0.116:8080\""
         }
         qa {
             resValue "string", "app_name", "dev Codebase"
@@ -78,10 +75,7 @@ android {
             minifyEnabled false
             shrinkResources false
             signingConfig signingConfigs.release
-            resValue "string", "GOOGLE_MAPS_KEY", "AIzaSyDTbwQ3bIBR2-V8yn0LA1yFpYlvVVvHvtg"
-            buildConfigField "String", "API_BASE_URL", "\"http://ec2-3-21-212-215.us-east-2.compute.amazonaws.com:8080\""
-            buildConfigField "String", "AGORA_PRIVATE_APP_ID", "\"6de8f98c1e0b4cbba29fae86068c59bd\""
-            buildConfigField "String", "HQ_BASE_URL", "\"http://ec2-18-223-172-79.us-east-2.compute.amazonaws.com\""
+            buildConfigField "String", "API_BASE_URL", "\"http://0.0.0.0:8080\""
         }
         staging {
             resValue "string", "app_name", "stg Codebase"
@@ -92,20 +86,14 @@ android {
             minifyEnabled false
             shrinkResources false
             signingConfig signingConfigs.release
-            resValue "string", "GOOGLE_MAPS_KEY", "AIzaSyDTbwQ3bIBR2-V8yn0LA1yFpYlvVVvHvtg"
-            buildConfigField "String", "API_BASE_URL", "\"http://ec2-18-216-55-114.us-east-2.compute.amazonaws.com:8080\""
-            buildConfigField "String", "AGORA_PRIVATE_APP_ID", "\"d05956d12f564cd3a2723c9214576e4e\""
-            buildConfigField "String", "HQ_BASE_URL", "\"http://ec2-3-135-186-228.us-east-2.compute.amazonaws.com\""
+            buildConfigField "String", "API_BASE_URL", "\"http://0.0.0.0:8080\""
         }
         release {
             debuggable false
             minifyEnabled false
             shrinkResources false
             signingConfig signingConfigs.release
-            resValue "string", "GOOGLE_MAPS_KEY", "AIzaSyDqf_y4Fcu16q_hkKsAe6E1i5f8YhKHNW0"
-            buildConfigField "String", "API_BASE_URL", "\"https://backend.viu.ai\""
-            buildConfigField "String", "AGORA_PRIVATE_APP_ID", "\"320b5f6e14cf4ec3ab5db0c4dfa9224c\""
-            buildConfigField "String", "HQ_BASE_URL", "\"https://hq.viu.ai\""
+            buildConfigField "String", "API_BASE_URL", "\"http://0.0.0.0:8080\""
         }
     }
 

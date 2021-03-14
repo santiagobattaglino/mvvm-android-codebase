@@ -31,19 +31,18 @@ val retrofitModule = module {
     // TODO this is working on the next launch after login or signIn. Check this: https://stackoverflow.com/questions/43051558/dagger-retrofit-adding-auth-headers-at-runtime
     // TODO Add Authorization header
     single {
-        val sp: SharedPreferenceUtils = get()
+        //val sp: SharedPreferenceUtils = get()
         OkHttpClient.Builder()
             .connectTimeout(Constants.TIME_OUT, TimeUnit.SECONDS)
             .readTimeout(Constants.TIME_OUT, TimeUnit.SECONDS)
-            //.retryOnConnectionFailure(true)
-            .addInterceptor { chain ->
+            /*.addInterceptor { chain ->
                 val original = chain.request()
                 val token = sp.getString(Arguments.ARG_USER_TOKEN) ?: ""
                 val requestBuilder = original.newBuilder()
                     .header("Sec-WebSocket-Protocol", token)
                 val request = requestBuilder.build()
                 chain.proceed(request)
-            }
+            }*/
             .addInterceptor(get() as HttpLoggingInterceptor)
             .build()
     }

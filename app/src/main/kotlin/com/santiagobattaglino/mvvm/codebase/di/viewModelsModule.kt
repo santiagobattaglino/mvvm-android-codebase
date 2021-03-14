@@ -10,4 +10,5 @@ val viewModelsModule = module {
     viewModel { CommentsViewModel(get()) }
     viewModel { UpdatesViewModel(get()) }
     viewModel { NotificationsViewModel(get()) }
+    viewModel { StockViewModel(get()) }
 }

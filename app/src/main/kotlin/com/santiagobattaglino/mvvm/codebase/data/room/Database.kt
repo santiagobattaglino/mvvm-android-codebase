@@ -13,7 +13,8 @@ import com.santiagobattaglino.mvvm.codebase.domain.entity.*
         Incident::class,
         Comment::class,
         Update::class,
-        Notification::class
+        Notification::class,
+        Stock::class
     ],
     version = Constants.DB_VERSION
 )
@@ -24,4 +25,5 @@ abstract class Database : RoomDatabase() {
     abstract fun commentDAO(): CommentDAO
     abstract fun updateDAO(): UpdateDAO
     abstract fun notificationDAO(): NotificationDAO
+    abstract fun stockDAO(): StockDAO
 }
