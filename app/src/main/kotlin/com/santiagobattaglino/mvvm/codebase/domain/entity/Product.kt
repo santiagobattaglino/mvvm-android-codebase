@@ -4,7 +4,6 @@ import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
-import java.util.*
 
 @Parcelize
 @Entity(tableName = "products")
@@ -19,5 +18,7 @@ data class Product(
     val priceId: Int = 0,
     val manufacturingCost: Int = 0,
     val notes: String? = null,
-    val dateCreated: String = ""
+    val dateCreated: String = "",
+    val categoryName: String = "",
+    val colorName: String = ""
 ) : Parcelable

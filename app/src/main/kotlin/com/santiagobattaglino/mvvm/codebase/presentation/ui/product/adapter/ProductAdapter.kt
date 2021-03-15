@@ -110,8 +110,10 @@ class ProductAdapter(
         }
 
         private fun setProductNormal(product: Product, view: View) {
-            view.normal_title.text = product.name.toString()
-            /*view.normal_title.text = incident.title
+            view.normal_title.text =
+                String.format("%s %s", product.name, product.colorName)
+            view.normal_time.text = product.categoryName
+            /*
             view.normal_time.text = String.format(
                 " · %s %s",
                 view.resources.getString(R.string.updated),
