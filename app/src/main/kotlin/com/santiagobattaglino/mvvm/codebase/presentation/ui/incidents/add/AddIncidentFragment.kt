@@ -36,8 +36,8 @@ import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.datepicker.MaterialDatePicker
 import com.santiagobattaglino.mvvm.codebase.BuildConfig
 import com.santiagobattaglino.mvvm.codebase.R
+import com.santiagobattaglino.mvvm.codebase.domain.entity.Category
 import com.santiagobattaglino.mvvm.codebase.domain.entity.Incident
-import com.santiagobattaglino.mvvm.codebase.domain.model.Category
 import com.santiagobattaglino.mvvm.codebase.domain.model.Media
 import com.santiagobattaglino.mvvm.codebase.presentation.ui.access.Validator
 import com.santiagobattaglino.mvvm.codebase.presentation.ui.base.BasePermissionFragment
@@ -146,7 +146,7 @@ class AddIncidentFragment : BasePermissionFragment(), Toolbar.OnMenuItemClickLis
         arguments?.getParcelable<Category>(Arguments.ARG_CATEGORY)?.let { category ->
             this.category = category
 
-            title.setText(category.title)
+            title.setText(category.name)
 
             add.setOnClickListener {
                 if (Validator.isValidName(

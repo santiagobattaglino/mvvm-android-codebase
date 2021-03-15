@@ -22,6 +22,7 @@ import com.santiagobattaglino.mvvm.codebase.util.convertDpToPixel
 import kotlinx.android.synthetic.main.fragment_stock_by_user_list.*
 import org.jetbrains.anko.intentFor
 import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pub.devrel.easypermissions.EasyPermissions
 
@@ -30,7 +31,7 @@ class ProductListFragment : BasePermissionFragment(), ProductAdapter.OnViewHolde
 
     private val mTag = javaClass.simpleName
 
-    private val productViewModel: ProductViewModel by viewModel()
+    private val productViewModel: ProductViewModel by sharedViewModel()
     private val sp: SharedPreferenceUtils by inject()
 
     private var products = mutableListOf<Product>()
@@ -89,7 +90,7 @@ class ProductListFragment : BasePermissionFragment(), ProductAdapter.OnViewHolde
     }
 
     private fun observeProducts() {
-        productViewModel.productsUiData.observe(this, {
+        productViewModel.productsUiData.observe(viewLifecycleOwner, {
             it.error?.let { error ->
                 handleError(mTag, error)
             }

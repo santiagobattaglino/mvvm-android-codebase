@@ -12,14 +12,9 @@ abstract class BaseFragment : Fragment() {
 
     private val mTag = javaClass.simpleName
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        observe()
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        observe()
         setUpViews()
     }
 

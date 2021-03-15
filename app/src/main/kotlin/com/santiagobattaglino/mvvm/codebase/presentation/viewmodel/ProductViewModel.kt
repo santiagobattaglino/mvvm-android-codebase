@@ -33,6 +33,22 @@ class ProductViewModel(
             }
         }
     }
+
+    fun getProductsByCategory(catId: Int) {
+        viewModelScope.launch {
+            val result = withContext(Dispatchers.IO) {
+                repo.getProductsByCategory(catId)
+            }
+
+            result.products?.let {
+                productsUiData.value = ResultProducts(it)
+            }
+
+            result.error?.let {
+                productsUiData.value = ResultProducts(error = it)
+            }
+        }
+    }
 }
 
 data class ResultProducts(

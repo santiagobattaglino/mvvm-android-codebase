@@ -51,4 +51,8 @@ class ProductRepoRoomImpl(
     override fun getProductsFlow(): Flow<List<Product>> {
         return productDAO.getListFlow()
     }
+
+    override suspend fun getProductsByCategory(catId: Int): ResultProducts {
+        return ResultProducts(productDAO.getProductsByCategory(catId), null)
+    }
 }

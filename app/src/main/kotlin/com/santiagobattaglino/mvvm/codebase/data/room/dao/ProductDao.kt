@@ -37,4 +37,7 @@ interface ProductDAO {
 
     @Update(onConflict = OnConflictStrategy.REPLACE)
     suspend fun update(data: Product)
+
+    @Query("SELECT * FROM products WHERE catId = :catId ORDER BY name")
+    suspend fun getProductsByCategory(catId: Int): List<Product>
 }

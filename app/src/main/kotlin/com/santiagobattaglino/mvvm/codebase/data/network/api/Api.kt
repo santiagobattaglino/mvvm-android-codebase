@@ -1,10 +1,10 @@
 package com.santiagobattaglino.mvvm.codebase.data.network.api
 
 import com.santiagobattaglino.mvvm.codebase.data.network.error.ErrorResponse
-import com.santiagobattaglino.mvvm.codebase.domain.entity.Login
 import com.haroldadmin.cnradapter.NetworkResponse
-import com.santiagobattaglino.mvvm.codebase.domain.entity.Product
-import com.santiagobattaglino.mvvm.codebase.domain.entity.Stock
+import com.santiagobattaglino.mvvm.codebase.domain.entity.*
+import com.santiagobattaglino.mvvm.codebase.domain.entity.Category
+import com.santiagobattaglino.mvvm.codebase.domain.entity.User
 import com.santiagobattaglino.mvvm.codebase.domain.model.*
 import com.santiagobattaglino.mvvm.codebase.domain.model.interiorefimero.StockByUserResponse
 import io.github.wax911.library.annotation.GraphQuery
@@ -171,6 +171,15 @@ interface Api {
 
     @GET("api/v1/products")
     suspend fun getProducts(): NetworkResponse<List<Product>, ErrorResponse>
+
+    @GET("api/v1/categories")
+    suspend fun getCategories(): NetworkResponse<List<Category>, ErrorResponse>
+
+    @GET("api/v1/colors")
+    suspend fun getColors(): NetworkResponse<List<Color>, ErrorResponse>
+
+    @GET("api/v1/users")
+    suspend fun getUsers(): NetworkResponse<List<User>, ErrorResponse>
 
     @GET("api/v1/stock/user/{userId}")
     suspend fun getStockByUser(

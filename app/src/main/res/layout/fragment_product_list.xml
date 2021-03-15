@@ -26,10 +26,11 @@
                 android:layout_gravity="top"
                 app:layout_collapseMode="parallax">
 
-                <View
-                    android:id="@+id/map"
+                <androidx.fragment.app.FragmentContainerView
+                    android:name="com.santiagobattaglino.mvvm.codebase.presentation.ui.category.PickCategoryFragment"
+                    android:id="@+id/pick_category"
                     android:layout_width="match_parent"
-                    android:layout_marginBottom="-100dp"
+                    android:layout_marginTop="100dp"
                     android:layout_height="match_parent" />
 
                 <!--<androidx.fragment.app.FragmentContainerView

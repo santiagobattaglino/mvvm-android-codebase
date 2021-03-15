@@ -12,4 +12,6 @@ val viewModelsModule = module {
     viewModel { NotificationsViewModel(get()) }
     viewModel { StockViewModel(get()) }
     viewModel { ProductViewModel(get()) }
+    viewModel { ColorViewModel(get()) }
+    viewModel { CategoryViewModel(get()) }
 }

@@ -8,4 +8,5 @@ interface ProductRepo {
     suspend fun getProducts(): ResultProducts
     suspend fun saveProductsLocal(data: List<Product>)
     fun getProductsFlow(): Flow<List<Product>>
+    suspend fun getProductsByCategory(catId: Int): ResultProducts
 }

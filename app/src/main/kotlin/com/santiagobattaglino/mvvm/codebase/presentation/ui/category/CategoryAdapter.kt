@@ -1,4 +1,4 @@
-package com.santiagobattaglino.mvvm.codebase.presentation.ui.incidents.category
+package com.santiagobattaglino.mvvm.codebase.presentation.ui.category
 
 import com.santiagobattaglino.mvvm.codebase.presentation.ui.AutoUpdatableAdapter
 import android.content.Context
@@ -11,7 +11,7 @@ import androidx.core.content.res.ResourcesCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.santiagobattaglino.mvvm.codebase.R
 import com.santiagobattaglino.mvvm.codebase.domain.entity.Category
-import kotlinx.android.synthetic.main.item_category.view.*
+import kotlinx.android.synthetic.main.item_category_product.view.*
 import kotlin.properties.Delegates
 
 class CategoryAdapter(
@@ -49,7 +49,7 @@ class CategoryAdapter(
 
     private fun createView(context: Context, viewGroup: ViewGroup, viewType: Int): View {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        return inflater.inflate(R.layout.item_category, viewGroup, false)
+        return inflater.inflate(R.layout.item_category_product, viewGroup, false)
     }
 
     interface OnViewHolderClick {

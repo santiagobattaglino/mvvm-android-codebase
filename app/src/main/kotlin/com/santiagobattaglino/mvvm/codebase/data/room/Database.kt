@@ -15,7 +15,9 @@ import com.santiagobattaglino.mvvm.codebase.util.Constants
         Update::class,
         Notification::class,
         Stock::class,
-        Product::class
+        Product::class,
+        Color::class,
+        Category::class
     ],
     version = Constants.DB_VERSION
 )
@@ -28,4 +30,6 @@ abstract class Database : RoomDatabase() {
     abstract fun notificationDAO(): NotificationDAO
     abstract fun stockDAO(): StockDAO
     abstract fun productDAO(): ProductDAO
+    abstract fun colorDAO(): ColorDAO
+    abstract fun categoryDAO(): CategoryDAO
 }

@@ -1,12 +1,5 @@
 package com.santiagobattaglino.mvvm.codebase.presentation.ui.incidents.category
 
-import com.santiagobattaglino.mvvm.codebase.data.repository.SharedPreferenceUtils
-import com.santiagobattaglino.mvvm.codebase.domain.model.Category
-import com.santiagobattaglino.mvvm.codebase.domain.model.CheckPlace
-import com.santiagobattaglino.mvvm.codebase.presentation.ui.base.BasePermissionFragment
-import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.IncidentsViewModel
-import com.santiagobattaglino.mvvm.codebase.util.Arguments
-import com.santiagobattaglino.mvvm.codebase.util.isLocationEnabled
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -23,6 +16,13 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.santiagobattaglino.mvvm.codebase.R
+import com.santiagobattaglino.mvvm.codebase.data.repository.SharedPreferenceUtils
+import com.santiagobattaglino.mvvm.codebase.domain.entity.Category
+import com.santiagobattaglino.mvvm.codebase.domain.model.CheckPlace
+import com.santiagobattaglino.mvvm.codebase.presentation.ui.base.BasePermissionFragment
+import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.IncidentsViewModel
+import com.santiagobattaglino.mvvm.codebase.util.Arguments
+import com.santiagobattaglino.mvvm.codebase.util.isLocationEnabled
 import kotlinx.android.synthetic.main.fragment_pick_category.*
 import org.jetbrains.anko.toast
 import org.koin.android.ext.android.inject

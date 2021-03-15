@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.santiagobattaglino.mvvm.codebase.data.network.error.ErrorObject
 import com.santiagobattaglino.mvvm.codebase.data.repository.incident.IncidentRepo
+import com.santiagobattaglino.mvvm.codebase.domain.entity.Category
 import com.santiagobattaglino.mvvm.codebase.domain.entity.Incident
 import com.santiagobattaglino.mvvm.codebase.domain.model.*
 import com.santiagobattaglino.mvvm.codebase.util.reizeImageFileWithGlide
