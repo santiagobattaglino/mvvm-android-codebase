@@ -19,6 +19,6 @@ data class Product(
     val manufacturingCost: Int = 0,
     val notes: String? = null,
     val dateCreated: String = "",
-    val categoryName: String = "",
-    val colorName: String = ""
+    val categoryName: String? = null,
+    val colorName: String? = null
 ) : Parcelable

@@ -10,7 +10,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.santiagobattaglino.mvvm.codebase.R
 import com.santiagobattaglino.mvvm.codebase.domain.entity.Product
 import com.santiagobattaglino.mvvm.codebase.presentation.ui.AutoUpdatableAdapter
-import kotlinx.android.synthetic.main.item_incident_normal.view.*
+import com.santiagobattaglino.mvvm.codebase.util.precioCapilla
+import com.santiagobattaglino.mvvm.codebase.util.precioMayor
+import com.santiagobattaglino.mvvm.codebase.util.precioMenor
+import com.santiagobattaglino.mvvm.codebase.util.precioMl
+import kotlinx.android.synthetic.main.item_product_normal.view.*
+import java.util.*
 import kotlin.properties.Delegates
 
 class ProductAdapter(
@@ -63,11 +68,11 @@ class ProductAdapter(
     private fun createView(context: Context, viewGroup: ViewGroup, viewType: Int): View {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         return when (viewType) {
-            VIEW_TYPE_NORMAL -> inflater.inflate(R.layout.item_incident_normal, viewGroup, false)
+            VIEW_TYPE_NORMAL -> inflater.inflate(R.layout.item_product_normal, viewGroup, false)
             VIEW_TYPE_LIVE -> inflater.inflate(R.layout.item_incident_live, viewGroup, false)
             VIEW_TYPE_HEADER -> inflater.inflate(R.layout.item_incident_header, viewGroup, false)
             else -> {
-                inflater.inflate(R.layout.item_incident_normal, viewGroup, false)
+                inflater.inflate(R.layout.item_product_normal, viewGroup, false)
             }
         }
     }
@@ -110,9 +115,19 @@ class ProductAdapter(
         }
 
         private fun setProductNormal(product: Product, view: View) {
-            view.normal_title.text =
-                String.format("%s %s", product.name, product.colorName)
-            view.normal_time.text = product.categoryName
+            view.normal_distance.text = String.format("SKU: %s - ", product.id.toString())
+            view.normal_time.text = product.categoryName?.capitalize(Locale.getDefault())
+            view.normal_title.text = product.name
+            view.normal_address.text = String.format("%s - %s", product.colorName, product.material)
+            view.normal_description.text = product.notes
+            view.manufacturingCost.text = String.format("Costo: $%d", product.manufacturingCost)
+            view.precioXmayor.text = String.format("X Mayor: $%.0f", precioMayor(product.manufacturingCost))
+            view.precioCapilla.text = String.format("Capilla: $%.0f", precioCapilla(product.manufacturingCost))
+            view.precioMenor.text =
+                String.format("X Menor: $%.0f", precioMenor(product.manufacturingCost))
+            view.precioMl.text =
+                String.format("ML: $%.0f", precioMl(product.manufacturingCost))
+
             /*
             view.normal_time.text = String.format(
                 " · %s %s",

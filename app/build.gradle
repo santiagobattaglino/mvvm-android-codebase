@@ -64,7 +64,7 @@ android {
             minifyEnabled false
             shrinkResources false
             signingConfig signingConfigs.debug
-            buildConfigField "String", "API_BASE_URL", "\"http://192.168.0.116:8080\""
+            buildConfigField "String", "API_BASE_URL", "\"http://192.168.0.104:8080\""
         }
         qa {
             resValue "string", "app_name", "dev Codebase"

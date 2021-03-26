@@ -1,7 +1,6 @@
 package com.santiagobattaglino.mvvm.codebase.data.room.dao
 
 import androidx.room.*
-import com.santiagobattaglino.mvvm.codebase.domain.entity.Incident
 import com.santiagobattaglino.mvvm.codebase.domain.entity.Product
 import kotlinx.coroutines.flow.Flow
 
@@ -26,7 +25,7 @@ interface ProductDAO {
     @Query("SELECT * FROM products WHERE id = :id")
     suspend fun get(id: Int): Product
 
-    @Query("SELECT * FROM products ORDER BY name")
+    @Query("SELECT * FROM products ORDER BY id")
     suspend fun getList(): List<Product>
 
     @Query("SELECT * FROM products ORDER BY id DESC")

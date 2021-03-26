@@ -116,7 +116,35 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/Widget.MaterialComponents.Chip.Action"
-                    android:text="Precio 1" />
+                    tools:text="Costo" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/precioXmayor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.Chip.Action"
+                    tools:text="Mayor" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/precioCapilla"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.Chip.Action"
+                    tools:text="Capilla" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/precioMenor"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.Chip.Action"
+                    tools:text="Menor" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/precioMl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.MaterialComponents.Chip.Action"
+                    tools:text="ML" />
 
             </com.google.android.material.chip.ChipGroup>
 
@@ -152,6 +180,7 @@
             layout="@layout/include_incident_bottom_bar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:background="@color/bottomBarIncident"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

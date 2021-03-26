@@ -88,7 +88,7 @@ class CategoryAdapter(
                         category_container.background =
                             ContextCompat.getDrawable(context, R.drawable.fill_cat_icon)
                     }
-                    try {
+                    /*try {
                         image.setImageDrawable(
                             ResourcesCompat.getDrawable(
                                 resources,
@@ -103,7 +103,7 @@ class CategoryAdapter(
                         )
                     } catch (e: Exception) {
                         e.printStackTrace()
-                    }
+                    }*/
                     title.text = category.name
                 }
             }
