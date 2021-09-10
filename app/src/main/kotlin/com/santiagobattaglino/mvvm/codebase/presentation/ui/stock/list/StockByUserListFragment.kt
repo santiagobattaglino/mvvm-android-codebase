@@ -21,7 +21,6 @@ import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.StockViewMode
 import com.santiagobattaglino.mvvm.codebase.util.Arguments
 import com.santiagobattaglino.mvvm.codebase.util.convertDpToPixel
 import kotlinx.android.synthetic.main.fragment_stock_by_user_list.*
-import org.jetbrains.anko.intentFor
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pub.devrel.easypermissions.EasyPermissions
@@ -148,11 +147,11 @@ class StockByUserListFragment : BasePermissionFragment(), StockAdapter.OnViewHol
     override fun dataViewClickFromList(view: View, position: Int, data: Stock) {
         adapter.popupWindow?.dismiss()
         when (view.id) {
-            R.id.item_incident_normal_container -> context?.startActivity(
+            /*R.id.item_incident_normal_container -> context?.startActivity(
                 context?.intentFor<IncidentDetailActivity>(
                     Arguments.ARG_INCIDENT_ID to data.id
                 )
-            )
+            )*/
             R.id.item_incident_live_container -> {
 
             }

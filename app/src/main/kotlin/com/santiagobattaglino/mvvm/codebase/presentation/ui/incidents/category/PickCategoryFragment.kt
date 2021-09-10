@@ -24,7 +24,6 @@ import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.IncidentsView
 import com.santiagobattaglino.mvvm.codebase.util.Arguments
 import com.santiagobattaglino.mvvm.codebase.util.isLocationEnabled
 import kotlinx.android.synthetic.main.fragment_pick_category.*
-import org.jetbrains.anko.toast
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pub.devrel.easypermissions.AppSettingsDialog
@@ -182,7 +181,7 @@ class PickCategoryFragment : BasePermissionFragment(), CategoryAdapter.OnViewHol
                     bundleOf(Arguments.ARG_CATEGORY to selectedCategory)
                 )
             } else {
-                context?.toast(getString(R.string.location_disabled))
+                //context?.toast(getString(R.string.location_disabled))
             }
         }
 

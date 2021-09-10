@@ -50,8 +50,6 @@ import kotlinx.android.synthetic.main.fragment_add_incident.*
 import kotlinx.android.synthetic.main.fragment_add_incident.title
 import kotlinx.android.synthetic.main.popup_add_photo.view.*
 import kotlinx.android.synthetic.main.popup_add_video.view.*
-import org.jetbrains.anko.longToast
-import org.jetbrains.anko.toast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import pub.devrel.easypermissions.AppSettingsDialog
 import pub.devrel.easypermissions.EasyPermissions
@@ -384,12 +382,12 @@ class AddIncidentFragment : BasePermissionFragment(), Toolbar.OnMenuItemClickLis
                         }
                         resizeVideo()
                     } else {
-                        context?.toast(
+                        /*context?.toast(
                             String.format(
                                 getString(R.string.video_file_size_too_big),
                                 videoSize.toString()
                             )
-                        )
+                        )*/
                     }
                 }
             }
@@ -652,9 +650,9 @@ class AddIncidentFragment : BasePermissionFragment(), Toolbar.OnMenuItemClickLis
                 add.isEnabled = true
                 progress.isVisible = false
                 if (error.isDescriptionLong()) {
-                    context?.longToast(getString(R.string.error_description_too_long))
+                    //context?.longToast(getString(R.string.error_description_too_long))
                 } else {
-                    context?.longToast(error.toString())
+                    //context?.longToast(error.toString())
                 }
             }
 
@@ -688,7 +686,7 @@ class AddIncidentFragment : BasePermissionFragment(), Toolbar.OnMenuItemClickLis
                 add.isEnabled = true
                 add.text = getString(R.string.create_incident)
                 progress.isVisible = false
-                context?.longToast(error.toString())
+                //context?.longToast(error.toString())
             }
 
             it.mediaResponseList?.let { mediaResponseList ->
@@ -784,7 +782,7 @@ class AddIncidentFragment : BasePermissionFragment(), Toolbar.OnMenuItemClickLis
     private fun observePhotoResize() {
         incidentsViewModel.resizePhotoUiData.observe(this, { isResized ->
             if (!isResized) {
-                context?.longToast(error.toString())
+                //context?.longToast(error.toString())
             } else {
                 addPhotoToMediaList()
             }

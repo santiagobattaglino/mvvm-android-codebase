@@ -6,7 +6,6 @@ import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.santiagobattaglino.mvvm.codebase.BuildConfig
-import org.jetbrains.anko.longToast
 
 abstract class BaseFragment : Fragment() {
 
@@ -21,7 +20,7 @@ abstract class BaseFragment : Fragment() {
     internal fun handleError(tag: String, error: ErrorObject) {
         if (BuildConfig.DEBUG) {
             Log.e(tag, error.toString())
-            context?.longToast(error.toString())
+            //context?.longToast(error.toString())
         }
     }
 

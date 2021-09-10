@@ -6,6 +6,7 @@ import com.santiagobattaglino.mvvm.codebase.data.network.api.Api
 import com.santiagobattaglino.mvvm.codebase.data.network.error.ErrorObject
 import com.santiagobattaglino.mvvm.codebase.data.room.dao.StockDAO
 import com.santiagobattaglino.mvvm.codebase.domain.entity.Stock
+import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.ResultProducts
 import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.ResultStockByUser
 import kotlinx.coroutines.flow.Flow
 
@@ -39,6 +40,10 @@ class StockRepoRoomImpl(
             is NetworkResponse.NetworkError -> {
                 Log.d(tag, ErrorObject(0, networkResponse.error.message).toString())
                 ResultStockByUser(null, null)
+            }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                ResultStockByUser(null, error)
             }
         }
     }

@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.santiagobattaglino.mvvm.codebase.BuildConfig
-import org.jetbrains.anko.longToast
 
 abstract class BaseActivity : AppCompatActivity() {
 
@@ -20,7 +19,7 @@ abstract class BaseActivity : AppCompatActivity() {
     internal fun handleError(tag: String, error: ErrorObject) {
         if (BuildConfig.DEBUG) {
             Log.e(tag, error.toString())
-            longToast(error.toString())
+            //longToast(error.toString())
         }
     }
 

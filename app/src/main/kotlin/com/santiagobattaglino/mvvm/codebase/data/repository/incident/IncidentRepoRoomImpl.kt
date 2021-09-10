@@ -70,6 +70,11 @@ class IncidentRepoRoomImpl(
                 Log.d(tag, ErrorObject(0, networkResponse.error.message).toString())
                 ResultIncidents(incidentDAO.getList(), null)
             }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                Log.d(tag, error.toString())
+                ResultIncidents(null, error)
+            }
         }
     }
 
@@ -107,6 +112,11 @@ class IncidentRepoRoomImpl(
             is NetworkResponse.NetworkError -> {
                 Log.d(tag, ErrorObject(0, networkResponse.error.message).toString())
                 ResultIncident(incidentDAO.get(id), null)
+            }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                Log.d(tag, error.toString())
+                ResultIncident(null, error)
             }
         }
     }
@@ -177,6 +187,11 @@ class IncidentRepoRoomImpl(
                     ErrorObject(0, networkResponse.error.message)
                 )
             }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                Log.d(tag, error.toString())
+                ResultIncident(null, error)
+            }
         }
     }
 
@@ -217,6 +232,11 @@ class IncidentRepoRoomImpl(
                     ErrorObject(0, networkResponse.error.message)
                 )
             }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                Log.d(tag, error.toString())
+                ResultAddMedia(null, error)
+            }
         }
     }
 
@@ -251,6 +271,11 @@ class IncidentRepoRoomImpl(
                     null,
                     ErrorObject(0, networkResponse.error.message)
                 )
+            }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                Log.d(tag, error.toString())
+                ResultAddMedia(null, error)
             }
         }
     }
@@ -311,6 +336,11 @@ class IncidentRepoRoomImpl(
                 Log.d(tag, ErrorObject(0, networkResponse.error.message).toString())
                 ResultIncident(incidentDAO.get(incidentId), null)
             }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                Log.d(tag, error.toString())
+                ResultIncident(null, error)
+            }
         }
     }
 
@@ -360,6 +390,11 @@ class IncidentRepoRoomImpl(
                     ErrorObject(0, networkResponse.error.message)
                 )
             }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                Log.d(tag, error.toString())
+                ResultIncidents(null, error)
+            }
         }
     }
 
@@ -395,6 +430,11 @@ class IncidentRepoRoomImpl(
                     ErrorObject(0, networkResponse.error.message)
                 )
             }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                Log.d(tag, error.toString())
+                ResultIncident(null, error)
+            }
         }
     }
 
@@ -425,6 +465,11 @@ class IncidentRepoRoomImpl(
                 Log.d(tag, ErrorObject(0, networkResponse.error.message).toString())
                 ResultJoinLiveChannel(null, null)
             }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                Log.d(tag, error.toString())
+                ResultJoinLiveChannel(null, error)
+            }
         }
     }
 
@@ -444,6 +489,11 @@ class IncidentRepoRoomImpl(
             is NetworkResponse.NetworkError -> {
                 ResultPlayVideo(null, ErrorObject(0, result.error.message))
             }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                Log.d(tag, error.toString())
+                ResultPlayVideo(null, error)
+            }
         }
     }
 
@@ -458,6 +508,11 @@ class IncidentRepoRoomImpl(
             }
             is NetworkResponse.NetworkError -> {
                 ResultCheckPlace(null, ErrorObject(0, result.error.message))
+            }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                Log.d(tag, error.toString())
+                ResultCheckPlace(null, error)
             }
         }
     }
@@ -484,6 +539,11 @@ class IncidentRepoRoomImpl(
             is NetworkResponse.NetworkError -> {
                 Log.d(tag, ErrorObject(0, networkResponse.error.message).toString())
                 ResultCategories(null, null)
+            }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                Log.d(tag, error.toString())
+                ResultCategories(null, error)
             }
         }
     }

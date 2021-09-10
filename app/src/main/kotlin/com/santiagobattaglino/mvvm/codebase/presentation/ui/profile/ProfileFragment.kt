@@ -26,9 +26,6 @@ import com.santiagobattaglino.mvvm.codebase.R
 import com.santiagobattaglino.mvvm.codebase.util.GlideApp
 import kotlinx.android.synthetic.main.fragment_profile.*
 import kotlinx.android.synthetic.main.popup_rate_app.view.*
-import org.jetbrains.anko.email
-import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.toast
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -71,7 +68,7 @@ class ProfileFragment : BaseFragment() {
             it.rateApp?.let { rateApp ->
                 //setLoginSessionInfo(login)
                 Log.d(mTag, "$rateApp")
-                context?.toast(R.string.thanks)
+                //context?.toast(R.string.thanks)
             }
         })
     }
@@ -92,10 +89,10 @@ class ProfileFragment : BaseFragment() {
         account_private.isChecked = login.isPrivateAccount
 
         support_center.setOnClickListener {
-            context?.email(
+            /*context?.email(
                 Constants.SUPPORT_EMAIL,
                 String.format(getString(R.string.support_subject), login.email)
-            )
+            )*/
         }
     }
 
@@ -146,7 +143,7 @@ class ProfileFragment : BaseFragment() {
         sp.removeString(Arguments.ARG_USER_ID)
         loginViewModel.deleteLogin(1)
         activity?.finish()
-        activity?.startActivity<SplashActivity>()
+        //activity?.startActivity<SplashActivity>()
     }
 
     private fun setUpAppBar() {

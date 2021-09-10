@@ -36,6 +36,11 @@ class CategoryRepoRoomImpl(
                 Log.d(tag, ErrorObject(0, networkResponse.error.message).toString())
                 ResultCats(null, null)
             }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                Log.d(tag, error.toString())
+                ResultCats(null, error)
+            }
         }
     }
 

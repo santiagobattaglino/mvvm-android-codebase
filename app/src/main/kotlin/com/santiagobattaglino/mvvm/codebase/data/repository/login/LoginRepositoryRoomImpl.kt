@@ -1,5 +1,6 @@
 package com.santiagobattaglino.mvvm.codebase.data.repository.login
 
+import android.util.Log
 import com.santiagobattaglino.mvvm.codebase.data.network.api.Api
 import com.santiagobattaglino.mvvm.codebase.data.network.error.ErrorObject
 import com.santiagobattaglino.mvvm.codebase.data.room.dao.LoginDAO
@@ -11,6 +12,7 @@ import com.santiagobattaglino.mvvm.codebase.domain.model.SetAccountPrivateReques
 import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.ResultLogin
 import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.ResultRateApp
 import com.haroldadmin.cnradapter.NetworkResponse
+import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.ResultCategories
 import io.github.wax911.library.model.request.QueryContainerBuilder
 
 class LoginRepositoryRoomImpl(
@@ -31,6 +33,10 @@ class LoginRepositoryRoomImpl(
             is NetworkResponse.NetworkError -> {
                 ResultLogin(null, ErrorObject(0, login.error.message))
             }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                ResultLogin(null, error)
+            }
         }
     }
 
@@ -44,6 +50,10 @@ class LoginRepositoryRoomImpl(
             }
             is NetworkResponse.NetworkError -> {
                 ResultLogin(null, ErrorObject(0, result.error.message))
+            }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                ResultLogin(null, error)
             }
         }
     }
@@ -83,6 +93,10 @@ class LoginRepositoryRoomImpl(
             is NetworkResponse.NetworkError -> {
                 ResultLogin(null, ErrorObject(0, result.error.message))
             }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                ResultLogin(null, error)
+            }
         }
     }
 
@@ -101,6 +115,10 @@ class LoginRepositoryRoomImpl(
             }
             is NetworkResponse.NetworkError -> {
                 ResultRateApp(null, ErrorObject(0, result.error.message))
+            }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                ResultRateApp(null, error)
             }
         }
     }

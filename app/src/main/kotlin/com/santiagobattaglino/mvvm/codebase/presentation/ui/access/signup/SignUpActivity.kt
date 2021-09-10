@@ -11,7 +11,6 @@ import android.os.Bundle
 import android.view.View
 import com.santiagobattaglino.mvvm.codebase.R
 import kotlinx.android.synthetic.main.activity_signup.*
-import org.jetbrains.anko.startActivity
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -34,7 +33,7 @@ class SignUpActivity : BaseActivity() {
                 sp.saveString(Arguments.ARG_USER_ID, login.id)
                 sp.saveString(Arguments.ARG_USER_EMAIL, login.email)
                 sp.saveString(Arguments.ARG_USER_TOKEN, login.token)
-                startActivity<BottomNavActivity>()
+                //startActivity<BottomNavActivity>()
                 finish()
             }
 

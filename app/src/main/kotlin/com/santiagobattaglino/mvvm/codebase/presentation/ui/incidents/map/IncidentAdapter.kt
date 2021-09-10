@@ -23,8 +23,6 @@ import kotlinx.android.synthetic.main.include_layout_reactions.view.*
 import kotlinx.android.synthetic.main.item_incident_live.view.*
 import kotlinx.android.synthetic.main.item_incident_normal.view.*
 import kotlinx.android.synthetic.main.popup_reactions.view.*
-import org.jetbrains.anko.intentFor
-import org.jetbrains.anko.share
 import org.ocpsoft.prettytime.PrettyTime
 import kotlin.properties.Delegates
 
@@ -257,12 +255,12 @@ class IncidentAdapter(
         ) {
             view.comments.text = incident.commentsCount.toString()
             view.comments_layout.setOnClickListener {
-                context.startActivity(
+                /*context.startActivity(
                     context.intentFor<CommentsActivity>(
                         Arguments.ARG_INCIDENT_TITLE to incident.title,
                         Arguments.ARG_INCIDENT_ID to incident.id
                     )
-                )
+                )*/
             }
         }
     }

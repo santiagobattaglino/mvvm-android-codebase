@@ -22,7 +22,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.santiagobattaglino.mvvm.codebase.R
 import kotlinx.android.synthetic.main.fragment_notifications.*
-import org.jetbrains.anko.intentFor
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class NotificationsFragment : BaseFragment(), NotificationAdapter.OnViewHolderClick {
@@ -120,11 +119,11 @@ class NotificationsFragment : BaseFragment(), NotificationAdapter.OnViewHolderCl
     }
 
     override fun dataViewClickFromList(view: View, position: Int, data: Notification) {
-        context?.startActivity(
+        /*context?.startActivity(
             context?.intentFor<IncidentDetailActivity>(
                 Arguments.ARG_INCIDENT_ID to data.incidentId?.toInt()
             )
-        )
+        )*/
     }
 
     override fun deleteNotificationById(id: Int) {

@@ -8,6 +8,7 @@ import com.santiagobattaglino.mvvm.codebase.domain.entity.Update
 import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.ResultUpdates
 import android.util.Log
 import com.haroldadmin.cnradapter.NetworkResponse
+import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.ResultStockByUser
 import io.github.wax911.library.model.request.QueryContainerBuilder
 
 class UpdateRepoRoomImpl(
@@ -51,6 +52,10 @@ class UpdateRepoRoomImpl(
             is NetworkResponse.NetworkError -> {
                 Log.d(tag, ErrorObject(0, networkResponse.error.message).toString())
                 ResultUpdates(updateDAO.getList(incidentId), null)
+            }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                ResultUpdates(null, error)
             }
         }
     }

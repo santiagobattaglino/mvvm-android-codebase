@@ -13,6 +13,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <!--<uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />-->
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
@@ -44,8 +45,7 @@
         android:supportsRtl="false"
         android:theme="@style/AppThemeNoActionBar"
         android:usesCleartextTraffic="true"
-        tools:ignore="UnusedAttribute"
-        tools:replace="android:supportsRtl">
+        tools:ignore="UnusedAttribute">
 
         <!-- Facebook -->
         <!--<meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
@@ -74,12 +74,13 @@
 
         <activity
             android:name=".presentation.ui.splash.SplashActivity"
-            android:noHistory="true">
-            <intent-filter>
+            android:noHistory="true"
+            android:exported="true">
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -101,13 +102,33 @@
             android:name=".presentation.ui.BottomNavActivity"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize"
+            android:exported="true"
+            tools:ignore="LockedOrientationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="store.interiorefimero"
+                    android:pathPrefix="/incident"
+                    android:scheme="interiorefimero" />
+            </intent-filter>
+        </activity>
 
         <activity android:name=".presentation.ui.comments.CommentsActivity" />
 
         <activity
             android:name=".presentation.ui.incidents.detail.IncidentDetailActivity"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            tools:ignore="LockedOrientationActivity"/>
 
         <activity
             android:name=".presentation.ui.access.signup.SignUpActivity"

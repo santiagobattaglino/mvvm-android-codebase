@@ -6,6 +6,7 @@ import com.santiagobattaglino.mvvm.codebase.data.network.api.Api
 import com.santiagobattaglino.mvvm.codebase.data.network.error.ErrorObject
 import com.santiagobattaglino.mvvm.codebase.data.room.dao.ColorDAO
 import com.santiagobattaglino.mvvm.codebase.domain.entity.Color
+import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.ResultCats
 import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.ResultColors
 
 class ColorRepoRoomImpl(
@@ -35,6 +36,11 @@ class ColorRepoRoomImpl(
             is NetworkResponse.NetworkError -> {
                 Log.d(tag, ErrorObject(0, networkResponse.error.message).toString())
                 ResultColors(null, null)
+            }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                Log.d(tag, error.toString())
+                ResultColors(null, error)
             }
         }
     }

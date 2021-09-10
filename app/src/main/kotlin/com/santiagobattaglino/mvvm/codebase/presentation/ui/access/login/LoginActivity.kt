@@ -1,5 +1,6 @@
 package com.santiagobattaglino.mvvm.codebase.presentation.ui.access.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.Spanned
@@ -20,8 +21,6 @@ import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.LoginViewMode
 import com.santiagobattaglino.mvvm.codebase.util.Arguments
 import com.santiagobattaglino.mvvm.codebase.util.Constants
 import kotlinx.android.synthetic.main.activity_login.*
-import org.jetbrains.anko.email
-import org.jetbrains.anko.startActivity
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
@@ -45,7 +44,7 @@ class LoginActivity : BaseActivity() {
                 sp.saveString(Arguments.ARG_USER_ID, login.id)
                 sp.saveString(Arguments.ARG_USER_EMAIL, login.email)
                 sp.saveString(Arguments.ARG_USER_TOKEN, login.token)
-                startActivity<BottomNavActivity>()
+                startActivity(Intent(this, BottomNavActivity::class.java))
                 finish()
             }
 
@@ -87,13 +86,13 @@ class LoginActivity : BaseActivity() {
 
     private fun setUpForgotPassword() {
         forgot_password.setOnClickListener {
-            if (Validator.isValidEmail(username, true)) {
+            /*if (Validator.isValidEmail(username, true)) {
                 email(
                     Constants.SUPPORT_EMAIL,
                     String.format(getString(R.string.forgot_password_subject), username.text),
                     String.format(getString(R.string.forgot_password_body), username.text)
                 )
-            }
+            }*/
         }
     }
 
@@ -120,7 +119,7 @@ class LoginActivity : BaseActivity() {
         val spannableString = SpannableString(getString(R.string.signup))
         val clickableSpan: ClickableSpan = object : ClickableSpan() {
             override fun onClick(widget: View) {
-                startActivity<SignUpActivity>()
+                startActivity(Intent(this@LoginActivity, SignUpActivity::class.java))
             }
         }
 

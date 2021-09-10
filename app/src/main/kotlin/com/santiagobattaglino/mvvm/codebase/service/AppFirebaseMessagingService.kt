@@ -106,7 +106,7 @@ class AppFirebaseMessagingService : FirebaseMessagingService() {
         }
     }
 
-    override fun handleIntent(intent: Intent?) {
+    /*override fun handleIntent(intent: Intent?) {
         super.handleIntent(intent)
         removeFirebaseOrigianlNotificaitons()
 
@@ -126,7 +126,7 @@ class AppFirebaseMessagingService : FirebaseMessagingService() {
                 incidentId
             )
         }
-    }
+    }*/
 
     private fun removeFirebaseOrigianlNotificaitons() {
         val notificationManager = getSystemService(NOTIFICATION_SERVICE) as NotificationManager

@@ -12,6 +12,7 @@ import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.ResultComment
 import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.ResultDeleteComment
 import android.util.Log
 import com.haroldadmin.cnradapter.NetworkResponse
+import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.ResultColors
 import io.github.wax911.library.model.request.QueryContainerBuilder
 
 class CommentRepoRoomImpl(
@@ -57,6 +58,11 @@ class CommentRepoRoomImpl(
                 Log.d(tag, ErrorObject(0, networkResponse.error.message).toString())
                 ResultComments(commentDAO.getList(incidentId), null)
             }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                Log.d(tag, error.toString())
+                ResultComments(null, error)
+            }
         }
     }
 
@@ -98,6 +104,11 @@ class CommentRepoRoomImpl(
                     ErrorObject(0, networkResponse.error.message)
                 )
             }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                Log.d(tag, error.toString())
+                ResultComment(null, error)
+            }
         }
     }
 
@@ -138,6 +149,11 @@ class CommentRepoRoomImpl(
                     ErrorObject(0, networkResponse.error.message)
                 )
             }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                Log.d(tag, error.toString())
+                ResultDeleteComment(null, error)
+            }
         }
     }
 
@@ -176,6 +192,11 @@ class CommentRepoRoomImpl(
                     null,
                     ErrorObject(0, networkResponse.error.message)
                 )
+            }
+            is NetworkResponse.UnknownError -> {
+                val error = ErrorObject(ErrorObject.UNKNOWN, "unknown error")
+                Log.d(tag, error.toString())
+                ResultComment(null, error)
             }
         }
     }

@@ -11,13 +11,13 @@ import android.os.Bundle
 import android.util.Log
 import android.util.TypedValue
 import android.view.View
+import android.view.ViewGroup
 import androidx.core.view.ViewCompat
+import androidx.core.view.get
 import androidx.core.view.updatePadding
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.santiagobattaglino.mvvm.codebase.R
 import kotlinx.android.synthetic.main.activity_bottom_nav.*
-import org.jetbrains.anko.intentFor
-import org.jetbrains.anko.longToast
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class BottomNavActivity : BaseActivity() {
@@ -62,13 +62,13 @@ class BottomNavActivity : BaseActivity() {
                 incident.videoStream?.let { _ ->
 
                 } ?: run {
-                    startActivity(intentFor<IncidentDetailActivity>(Arguments.ARG_INCIDENT_ID to incident.id))
+                    //startActivity(intentFor<IncidentDetailActivity>(Arguments.ARG_INCIDENT_ID to incident.id))
                 }
             }
 
             it.error?.let { error ->
                 if (error.isNoContent()) {
-                    longToast(R.string.incident_not_exists)
+                    //longToast(R.string.incident_not_exists)
                     Log.d(tag, "deleting notification ${error.msg}")
                     notificationsViewModel.deleteNotificationByIncidentId(error.msg)
                     error.msg?.let { incidentId ->
@@ -99,7 +99,7 @@ class BottomNavActivity : BaseActivity() {
         bottom_navigation.itemIconTintList = null
 
         val menuView = bottom_navigation.getChildAt(0) as BottomNavigationMenuView
-        val iconView = menuView.getChildAt(2).findViewById<View>(R.id.icon)
+        val iconView = (menuView.getChildAt(2) as ViewGroup)[0]
         val layoutParams = iconView.layoutParams
         val displayMetrics = resources.displayMetrics
         layoutParams.height =

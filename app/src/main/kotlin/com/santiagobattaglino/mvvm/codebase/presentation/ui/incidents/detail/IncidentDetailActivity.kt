@@ -49,9 +49,6 @@ import kotlinx.android.synthetic.main.include_layout_comments.*
 import kotlinx.android.synthetic.main.include_layout_reactions.*
 import kotlinx.android.synthetic.main.item_incident_normal.*
 import kotlinx.android.synthetic.main.popup_reactions.view.*
-import org.jetbrains.anko.intentFor
-import org.jetbrains.anko.longToast
-import org.jetbrains.anko.share
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.ocpsoft.prettytime.PrettyTime
 import java.io.File
@@ -195,7 +192,7 @@ class IncidentDetailActivity : BaseActivity(), UpdateAdapter.OnViewHolderClick,
             it.error?.let { error ->
                 //handleError(tag, error)
                 if (error.isNoContent()) {
-                    longToast(R.string.incident_not_exists)
+                    //longToast(R.string.incident_not_exists)
                     notificationsViewModel.deleteNotificationByIncidentId(error.msg)
                     error.msg?.let { incidentId ->
                         incidentsViewModel.deleteIncident(incidentId.toInt())
@@ -342,12 +339,12 @@ class IncidentDetailActivity : BaseActivity(), UpdateAdapter.OnViewHolderClick,
         normal_description.text = incident.description
 
         comments_layout.setOnClickListener {
-            startActivity(
+            /*startActivity(
                 intentFor<CommentsActivity>(
                     Arguments.ARG_INCIDENT_TITLE to incident.title,
                     Arguments.ARG_INCIDENT_ID to incident.id
                 )
-            )
+            )*/
         }
 
         setUpReactions(this, incident)

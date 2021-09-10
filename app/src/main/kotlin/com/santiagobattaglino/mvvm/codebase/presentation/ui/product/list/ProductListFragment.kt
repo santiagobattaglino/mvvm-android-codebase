@@ -20,10 +20,8 @@ import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.ProductViewMo
 import com.santiagobattaglino.mvvm.codebase.util.Arguments
 import com.santiagobattaglino.mvvm.codebase.util.convertDpToPixel
 import kotlinx.android.synthetic.main.fragment_stock_by_user_list.*
-import org.jetbrains.anko.intentFor
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
-import org.koin.androidx.viewmodel.ext.android.viewModel
 import pub.devrel.easypermissions.EasyPermissions
 
 class ProductListFragment : BasePermissionFragment(), ProductAdapter.OnViewHolderClick,
@@ -141,11 +139,11 @@ class ProductListFragment : BasePermissionFragment(), ProductAdapter.OnViewHolde
     override fun dataViewClickFromList(view: View, position: Int, data: Product) {
         adapter.popupWindow?.dismiss()
         when (view.id) {
-            R.id.item_incident_normal_container -> context?.startActivity(
+            /*R.id.item_incident_normal_container -> context?.startActivity(
                 context?.intentFor<IncidentDetailActivity>(
                     Arguments.ARG_INCIDENT_ID to data.id
                 )
-            )
+            )*/
             R.id.item_incident_live_container -> {
 
             }

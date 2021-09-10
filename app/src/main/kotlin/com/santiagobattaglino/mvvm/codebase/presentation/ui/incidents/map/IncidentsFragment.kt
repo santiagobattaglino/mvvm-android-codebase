@@ -35,7 +35,6 @@ import kotlinx.android.synthetic.main.include_layout_comments.*
 import kotlinx.android.synthetic.main.include_layout_reactions.*
 import kotlinx.android.synthetic.main.item_incident_normal.*
 import kotlinx.android.synthetic.main.popup_reactions.view.*
-import org.jetbrains.anko.intentFor
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.ocpsoft.prettytime.PrettyTime
@@ -194,11 +193,11 @@ class IncidentsFragment : BasePermissionFragment(), IncidentAdapter.OnViewHolder
     override fun dataViewClickFromList(view: View, position: Int, data: Incident) {
         adapter.popupWindow?.dismiss()
         when (view.id) {
-            R.id.item_incident_normal_container -> context?.startActivity(
+            /*R.id.item_incident_normal_container -> context?.startActivity(
                 context?.intentFor<IncidentDetailActivity>(
                     Arguments.ARG_INCIDENT_ID to data.id
                 )
-            )
+            )*/
             R.id.item_incident_live_container -> {
 
             }
@@ -290,7 +289,7 @@ class IncidentsFragment : BasePermissionFragment(), IncidentAdapter.OnViewHolder
         //app_bar_layout.setExpanded(true, true)
         card_incident_layout.visibility = View.VISIBLE
         card_incident_layout.setOnClickListener {
-            context?.startActivity(context?.intentFor<IncidentDetailActivity>(Arguments.ARG_INCIDENT_ID to incident.id))
+            //context?.startActivity(context?.intentFor<IncidentDetailActivity>(Arguments.ARG_INCIDENT_ID to incident.id))
         }
 
         normal_title.text = incident.title
@@ -330,12 +329,12 @@ class IncidentsFragment : BasePermissionFragment(), IncidentAdapter.OnViewHolder
 
         comments.text = incident.commentsCount.toString()
         comments_layout.setOnClickListener {
-            context?.startActivity(
+            /*context?.startActivity(
                 context?.intentFor<CommentsActivity>(
                     Arguments.ARG_INCIDENT_TITLE to incident.title,
                     Arguments.ARG_INCIDENT_ID to incident.id
                 )
-            )
+            )*/
         }
 
         context?.let {

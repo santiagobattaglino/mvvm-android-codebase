@@ -9,8 +9,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import com.santiagobattaglino.mvvm.codebase.R
-import org.jetbrains.anko.intentFor
-import org.jetbrains.anko.startActivity
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SplashActivity : BaseActivity() {
@@ -36,7 +34,7 @@ class SplashActivity : BaseActivity() {
                 val deepLinkIncidentId = data?.getQueryParameter("id")?.toInt()
 
                 deepLinkIncidentId?.let { id ->
-                    startActivity(intentFor<BottomNavActivity>(Arguments.ARG_INCIDENT_ID to id))
+                    //startActivity(intentFor<BottomNavActivity>(Arguments.ARG_INCIDENT_ID to id))
                 } ?: run {
                     goToMain()
                 }
@@ -47,14 +45,14 @@ class SplashActivity : BaseActivity() {
     }
 
     private fun goToLogin() {
-        startActivity<LoginActivity>()
+        //startActivity<LoginActivity>()
     }
 
     private fun goToMain() {
         intent?.extras?.getInt(Arguments.ARG_INCIDENT_ID)?.let {
-            startActivity(intentFor<BottomNavActivity>(Arguments.ARG_INCIDENT_ID to it))
+            //startActivity(intentFor<BottomNavActivity>(Arguments.ARG_INCIDENT_ID to it))
         } ?: run {
-            startActivity<BottomNavActivity>()
+            //startActivity<BottomNavActivity>()
         }
     }
 }
