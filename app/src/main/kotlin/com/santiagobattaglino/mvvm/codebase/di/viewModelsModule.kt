@@ -6,12 +6,4 @@ import org.koin.dsl.module
 
 val viewModelsModule = module {
     viewModel { LoginViewModel(get()) }
-    viewModel { IncidentsViewModel(get()) }
-    viewModel { CommentsViewModel(get()) }
-    viewModel { UpdatesViewModel(get()) }
-    viewModel { NotificationsViewModel(get()) }
-    viewModel { StockViewModel(get()) }
-    viewModel { ProductViewModel(get()) }
-    viewModel { ColorViewModel(get()) }
-    viewModel { CategoryViewModel(get()) }
 }

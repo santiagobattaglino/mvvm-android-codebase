@@ -1,45 +1,25 @@
 package com.santiagobattaglino.mvvm.codebase.presentation.ui
 
-import com.santiagobattaglino.mvvm.codebase.presentation.ui.base.BaseActivity
-import com.santiagobattaglino.mvvm.codebase.presentation.ui.incidents.detail.IncidentDetailActivity
-import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.IncidentsViewModel
-import com.santiagobattaglino.mvvm.codebase.presentation.viewmodel.NotificationsViewModel
-import com.santiagobattaglino.mvvm.codebase.util.Arguments
-import com.santiagobattaglino.mvvm.codebase.util.setupWithNavController
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.util.TypedValue
-import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.ViewCompat
 import androidx.core.view.get
-import androidx.core.view.updatePadding
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.santiagobattaglino.mvvm.codebase.R
-import kotlinx.android.synthetic.main.activity_bottom_nav.*
-import org.koin.androidx.viewmodel.ext.android.viewModel
+import com.santiagobattaglino.mvvm.codebase.databinding.ActivityBottomNavBinding
+import com.santiagobattaglino.mvvm.codebase.presentation.ui.base.BaseActivity
+import com.santiagobattaglino.mvvm.codebase.util.setupWithNavController
 
 class BottomNavActivity : BaseActivity() {
 
     private val tag = javaClass.simpleName
-    private val incidentsViewModel: IncidentsViewModel by viewModel()
-    private val notificationsViewModel: NotificationsViewModel by viewModel()
-
-    override fun onNewIntent(intent: Intent?) {
-        super.onNewIntent(intent)
-        intent?.extras?.getInt(Arguments.ARG_INCIDENT_ID)?.let {
-            incidentsViewModel.getIncidentById(it)
-        }
-    }
+    private lateinit var binding: ActivityBottomNavBinding
+    //private val viewModel: BottomNavViewModel by viewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_bottom_nav)
-
-        intent?.extras?.getInt(Arguments.ARG_INCIDENT_ID)?.let {
-            incidentsViewModel.getIncidentById(it)
-        }
+        binding = ActivityBottomNavBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         if (savedInstanceState == null) {
             setupNavigation()
@@ -57,7 +37,7 @@ class BottomNavActivity : BaseActivity() {
     }
 
     private fun observeIncident() {
-        incidentsViewModel.incidentUiData.observe(this, {
+        /*incidentsViewModel.incidentUiData.observe(this, {
             it.incident?.let { incident ->
                 incident.videoStream?.let { _ ->
 
@@ -77,28 +57,26 @@ class BottomNavActivity : BaseActivity() {
                     }
                 }
             }
-        })
+        })*/
     }
 
     private fun setupNavigation() {
-        bottom_navigation.setupWithNavController(
+        binding.bottomNavigation.setupWithNavController(
             navGraphIds = listOf(
-                R.navigation.nav_products,
-                //R.navigation.nav_stock,
-                //R.navigation.nav_incidents,
                 R.navigation.nav_trending,
-                R.navigation.nav_add_incident,
-                R.navigation.nav_notifications,
-                R.navigation.nav_profile
+                R.navigation.nav_trending,
+                R.navigation.nav_trending,
+                R.navigation.nav_trending,
+                R.navigation.nav_trending
             ),
             fragmentManager = supportFragmentManager,
             containerId = R.id.nav_host_fragment,
             intent = intent
         )
 
-        bottom_navigation.itemIconTintList = null
+        binding.bottomNavigation.itemIconTintList = null
 
-        val menuView = bottom_navigation.getChildAt(0) as BottomNavigationMenuView
+        val menuView = binding.bottomNavigation.getChildAt(0) as BottomNavigationMenuView
         val iconView = (menuView.getChildAt(2) as ViewGroup)[0]
         val layoutParams = iconView.layoutParams
         val displayMetrics = resources.displayMetrics
@@ -110,12 +88,12 @@ class BottomNavActivity : BaseActivity() {
     }
 
     private fun setupInsets() {
-        bottom_activity_container.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
+        /*bottom_activity_container.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_STABLE or
                 View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
 
         ViewCompat.setOnApplyWindowInsetsListener(bottom_activity_container) { _, insets ->
             bottom_activity_container.updatePadding(top = -insets.stableInsetTop)
             insets
-        }
+        }*/
     }
 }

@@ -3,35 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.santiagobattaglino.mvvm.codebase">
 
-    <!--suppress AndroidElementNotAllowed -->
-    <!--<queries>
-        <intent>
-            <action android:name="android.media.action.IMAGE_CAPTURE" />
-        </intent>
-    </queries>-->
-
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <!--<uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />-->
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <!--<uses-permission
-        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="28" />-->
-
-    <uses-feature
-        android:name="android.hardware.camera"
-        android:required="false" />
-    <uses-feature
-        android:name="android.hardware.camera.autofocus"
-        android:required="false" />
-    <uses-feature
-        android:name="android.hardware.camera2"
-        android:required="false" />
 
     <application
         android:name=".App"
@@ -47,100 +19,19 @@
         android:usesCleartextTraffic="true"
         tools:ignore="UnusedAttribute">
 
-        <!-- Facebook -->
-        <!--<meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
-        <provider
-            android:name="com.facebook.FacebookContentProvider"
-            android:authorities="com.facebook.app.FacebookContentProvider777903302998807"
-            android:exported="false" />-->
-
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="${applicationId}.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_paths" />
-        </provider>
-
-        <!--<service
-            android:name=".service.AppFirebaseMessagingService"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-            </intent-filter>
-        </service>-->
-
-        <activity
-            android:name=".presentation.ui.splash.SplashActivity"
-            android:noHistory="true"
-            android:exported="true">
-            <!--<intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data
-                    android:host="store.interiorefimero"
-                    android:pathPrefix="/incident"
-                    android:scheme="interiorefimero" />
-            </intent-filter>
-        </activity>
-
-        <activity
-            android:name=".presentation.ui.access.login.LoginActivity"
-            android:windowSoftInputMode="adjustResize" />
-
         <activity
             android:name=".presentation.ui.BottomNavActivity"
+            android:exported="false"
             android:launchMode="singleInstance"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"
-            android:exported="true"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data
-                    android:host="store.interiorefimero"
-                    android:pathPrefix="/incident"
-                    android:scheme="interiorefimero" />
-            </intent-filter>
         </activity>
-
-        <activity android:name=".presentation.ui.comments.CommentsActivity" />
-
-        <activity
-            android:name=".presentation.ui.incidents.detail.IncidentDetailActivity"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity"/>
-
-        <activity
-            android:name=".presentation.ui.access.signup.SignUpActivity"
-            android:windowSoftInputMode="adjustResize" />
-
-        <!--<meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />-->
-
-        <!--<meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/GOOGLE_MAPS_KEY" />-->
     </application>
 
 </manifest>

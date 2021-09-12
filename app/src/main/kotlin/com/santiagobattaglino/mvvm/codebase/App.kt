@@ -10,9 +10,9 @@ import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
 
+@ExperimentalCoroutinesApi
 class App : Application() {
 
-    @ExperimentalCoroutinesApi
     override fun onCreate() {
         super.onCreate()
 
@@ -25,12 +25,12 @@ class App : Application() {
         // TODO only for develop debug distribuition.
         // Stetho.initializeWithDefaults(this)
 
-        val channelId = if (BuildConfig.DEBUG) {
+        // Notifications
+        /*val channelId = if (BuildConfig.DEBUG) {
             Constants.DEV_NOTIFICATION_CHANNEL_ID
         } else {
             Constants.DEFAULT_NOTIFICATION_CHANNEL_ID
-        }
-
+        }*/
         //FirebaseMessaging.getInstance().subscribeToTopic(channelId)
     }
 }

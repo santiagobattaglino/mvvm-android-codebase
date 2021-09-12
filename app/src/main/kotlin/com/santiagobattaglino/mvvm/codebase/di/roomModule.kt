@@ -1,24 +1,8 @@
 package com.santiagobattaglino.mvvm.codebase.di
 
 import androidx.room.Room
-import com.santiagobattaglino.mvvm.codebase.data.repository.category.CategoryRepo
-import com.santiagobattaglino.mvvm.codebase.data.repository.category.CategoryRepoRoomImpl
-import com.santiagobattaglino.mvvm.codebase.data.repository.color.ColorRepo
-import com.santiagobattaglino.mvvm.codebase.data.repository.color.ColorRepoRoomImpl
-import com.santiagobattaglino.mvvm.codebase.data.repository.comment.CommentRepo
-import com.santiagobattaglino.mvvm.codebase.data.repository.comment.CommentRepoRoomImpl
-import com.santiagobattaglino.mvvm.codebase.data.repository.incident.IncidentRepo
-import com.santiagobattaglino.mvvm.codebase.data.repository.incident.IncidentRepoRoomImpl
 import com.santiagobattaglino.mvvm.codebase.data.repository.login.LoginRepository
 import com.santiagobattaglino.mvvm.codebase.data.repository.login.LoginRepositoryRoomImpl
-import com.santiagobattaglino.mvvm.codebase.data.repository.notification.NotificationRepo
-import com.santiagobattaglino.mvvm.codebase.data.repository.notification.NotificationRepoRoomImpl
-import com.santiagobattaglino.mvvm.codebase.data.repository.product.ProductRepo
-import com.santiagobattaglino.mvvm.codebase.data.repository.product.ProductRepoRoomImpl
-import com.santiagobattaglino.mvvm.codebase.data.repository.stock.StockRepo
-import com.santiagobattaglino.mvvm.codebase.data.repository.stock.StockRepoRoomImpl
-import com.santiagobattaglino.mvvm.codebase.data.repository.update.UpdateRepo
-import com.santiagobattaglino.mvvm.codebase.data.repository.update.UpdateRepoRoomImpl
 import com.santiagobattaglino.mvvm.codebase.data.room.Database
 import com.santiagobattaglino.mvvm.codebase.util.Constants
 import org.koin.android.ext.koin.androidApplication
@@ -34,66 +18,6 @@ val roomModule = module {
         )
     }
 
-    single<IncidentRepo> {
-        IncidentRepoRoomImpl(
-            get(named("RetrofitRest")),
-            get(named("RetrofitGraph")),
-            get(),
-            get()
-        )
-    }
-
-    single<CommentRepo> {
-        CommentRepoRoomImpl(
-            get(named("RetrofitGraph")),
-            get(),
-            get(),
-            get()
-        )
-    }
-
-    single<UpdateRepo> {
-        UpdateRepoRoomImpl(
-            get(named("RetrofitGraph")),
-            get(),
-            get()
-        )
-    }
-
-    single<NotificationRepo> {
-        NotificationRepoRoomImpl(
-            get()
-        )
-    }
-
-    single<StockRepo> {
-        StockRepoRoomImpl(
-            get(named("RetrofitRest")),
-            get()
-        )
-    }
-
-    single<ProductRepo> {
-        ProductRepoRoomImpl(
-            get(named("RetrofitRest")),
-            get()
-        )
-    }
-
-    single<ColorRepo> {
-        ColorRepoRoomImpl(
-            get(named("RetrofitRest")),
-            get()
-        )
-    }
-
-    single<CategoryRepo> {
-        CategoryRepoRoomImpl(
-            get(named("RetrofitRest")),
-            get()
-        )
-    }
-
     single {
         Room.databaseBuilder(androidApplication(), Database::class.java, Constants.DB_NAME)
             .fallbackToDestructiveMigration()
@@ -101,12 +25,4 @@ val roomModule = module {
     }
 
     single { get<Database>().loginDAO() }
-    single { get<Database>().incidentDAO() }
-    single { get<Database>().commentDAO() }
-    single { get<Database>().updateDAO() }
-    single { get<Database>().notificationDAO() }
-    single { get<Database>().stockDAO() }
-    single { get<Database>().productDAO() }
-    single { get<Database>().colorDAO() }
-    single { get<Database>().categoryDAO() }
 }

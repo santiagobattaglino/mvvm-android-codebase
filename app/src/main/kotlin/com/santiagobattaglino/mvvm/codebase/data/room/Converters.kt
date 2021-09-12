@@ -1,6 +1,5 @@
 package com.santiagobattaglino.mvvm.codebase.data.room
 
-import com.santiagobattaglino.mvvm.codebase.domain.model.Media
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -22,22 +21,6 @@ class Converters {
         }
 
         val listType = object : TypeToken<List<String>>() {}.type
-
-        return gson.fromJson(data, listType)
-    }
-
-    @TypeConverter
-    fun mediaListToString(mediaList: List<Media>): String {
-        return gson.toJson(mediaList)
-    }
-
-    @TypeConverter
-    fun stringToMediaList(data: String?): List<Media> {
-        if (data == null) {
-            return emptyList()
-        }
-
-        val listType = object : TypeToken<List<Media>>() {}.type
 
         return gson.fromJson(data, listType)
     }

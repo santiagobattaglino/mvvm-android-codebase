@@ -1,10 +1,11 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-parcelize'
+apply plugin: "androidx.navigation.safeargs.kotlin"
 //apply plugin: 'com.google.gms.google-services'
 //apply plugin: 'com.google.firebase.crashlytics'
-apply plugin: "androidx.navigation.safeargs.kotlin"
+
 apply from: "artifacts.gradle"
 
 def keystorePropertiesFile = rootProject.file("keystore.properties")
@@ -13,7 +14,6 @@ keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
 
 android {
     compileSdkVersion 31
-
     defaultConfig {
         applicationId "com.santiagobattaglino.mvvm.codebase"
         minSdkVersion 30
@@ -27,13 +27,39 @@ android {
                 arg("room.expandProjection", "true")
             }
         }
-        resConfigs "en", "es"
+        resConfigs "en"
         resValue "string", "app_name", "Codebase"
         /*ndk {
             abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
         }*/
     }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+        main.jniLibs.srcDirs = ['src/main/jniLibs']
+    }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    variantFilter { variant ->
+        if (variant.buildType.name == 'debug') {
+            variant.setIgnore(true)
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
     signingConfigs {
         develop {
             storeFile file(keystoreProperties['storeFileDebug'])
@@ -45,11 +71,9 @@ android {
             storePassword keystoreProperties['storePassword']
         }
     }
-
     /*packagingOptions {
         exclude 'META-INF/DEPENDENCIES'
     }*/
-
     buildTypes {
         develop {
             resValue "string", "app_name", "dev Codebase"
@@ -60,7 +84,7 @@ android {
             minifyEnabled false
             shrinkResources false
             signingConfig signingConfigs.debug
-            buildConfigField "String", "API_BASE_URL", "\"http://192.168.0.104:8080\""
+            buildConfigField "String", "API_BASE_URL", "\"http://192.168.0.124:8080\""
         }
         qa {
             resValue "string", "app_name", "dev Codebase"
@@ -92,39 +116,14 @@ android {
             buildConfigField "String", "API_BASE_URL", "\"http://0.0.0.0:8080\""
         }
     }
-
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-        main.jniLibs.srcDirs = ['src/main/jniLibs']
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-
-    variantFilter { variant ->
-        if (variant.buildType.name == 'debug') {
-            variant.setIgnore(true)
-        }
-    }
-
-    lintOptions {
-        checkReleaseBuilds false
-    }
 }
 
-androidExtensions {
+/*androidExtensions {
     experimental = true
-}
+}*/
 
 dependencies {
-
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     // AndroidX
     implementation "androidx.appcompat:appcompat:$androidx_appcompat"

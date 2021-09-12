@@ -1,13 +1,11 @@
 package com.santiagobattaglino.mvvm.codebase.di
 
-import com.santiagobattaglino.mvvm.codebase.data.network.api.Api
-import com.santiagobattaglino.mvvm.codebase.data.repository.SharedPreferenceUtils
-import com.santiagobattaglino.mvvm.codebase.util.Arguments
-import com.santiagobattaglino.mvvm.codebase.util.Constants
 import com.google.gson.GsonBuilder
 import com.google.gson.internal.bind.DateTypeAdapter
 import com.haroldadmin.cnradapter.NetworkResponseAdapterFactory
 import com.santiagobattaglino.mvvm.codebase.BuildConfig
+import com.santiagobattaglino.mvvm.codebase.data.network.api.Api
+import com.santiagobattaglino.mvvm.codebase.util.Constants
 import io.github.wax911.library.converter.GraphConverter
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
