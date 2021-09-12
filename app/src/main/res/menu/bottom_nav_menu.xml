@@ -4,14 +4,6 @@
         android:id="@+id/products_graph"
         android:icon="@drawable/selector_bottom_incidents"
         android:title="@string/products" />
-    <!--<item
-        android:id="@+id/stock_by_user_graph"
-        android:icon="@drawable/selector_bottom_incidents"
-        android:title="@string/stock_by_user" />-->
-    <!--<item
-        android:id="@+id/incidents_graph"
-        android:icon="@drawable/selector_bottom_incidents"
-        android:title="@string/incidents" />-->
     <item
         android:id="@+id/trending_graph"
         android:icon="@drawable/selector_bottom_feed"

@@ -1,7 +1,0 @@
-query JoinLiveChannel($channel: String!) {
-    joinLiveChannel(channel: $channel) {
-        token
-        channel
-        uid
-    }
-}

@@ -1,5 +1,0 @@
-mutation UpdateUser($input: UpdateUserInput!, $userId: String!) {
-    updateUser(input: $input, userId: $userId) {
-        isPrivateAccount
-    }
-}

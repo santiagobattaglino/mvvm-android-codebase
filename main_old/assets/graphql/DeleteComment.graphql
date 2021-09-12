@@ -1,3 +1,0 @@
-mutation DeleteComment($incidentId: Int!, $commentId: Int!) {
-    deleteCommentFromIncident(incidentId: $incidentId, commentId: $commentId)
-}
