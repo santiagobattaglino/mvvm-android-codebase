@@ -127,7 +127,7 @@ dependencies {
 
     // AndroidX
     implementation "androidx.appcompat:appcompat:$androidx_appcompat"
-    implementation "androidx.annotation:annotation:$androidx_annotation"
+    //implementation "androidx.annotation:annotation:$androidx_annotation"
     implementation "androidx.core:core-ktx:$androidx_core_ktx"
     implementation "androidx.constraintlayout:constraintlayout:$constraint_version"
     implementation "androidx.fragment:fragment-ktx:$androidx_fragment_ktx"
@@ -136,7 +136,7 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$androidx_navigation"
     implementation "androidx.navigation:navigation-ui-ktx:$androidx_navigation"
     //implementation "androidx.navigation:navigation-dynamic-features-fragment:androidx_navigation"
-    androidTestImplementation "androidx.navigation:navigation-testing:$androidx_navigation"
+    //androidTestImplementation "androidx.navigation:navigation-testing:$androidx_navigation"
     //implementation "androidx.navigation:navigation-compose:1.0.0-alpha02"
 
     // ViewModel and LiveData
@@ -147,13 +147,13 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-common-java8:$androidx_lifecycle"
     //implementation "androidx.lifecycle:lifecycle-service:$lifecycle_version"
     //implementation "androidx.lifecycle:lifecycle-process:$lifecycle_version"
-    testImplementation "androidx.arch.core:core-testing:$androidxarch_version"
+    //testImplementation "androidx.arch.core:core-testing:$androidxarch_version"
 
     // Room
     implementation "androidx.room:room-runtime:$androidx_room"
     kapt "androidx.room:room-compiler:$androidx_room"
     implementation "androidx.room:room-ktx:$androidx_room"
-    testImplementation "androidx.room:room-testing:$androidx_room"
+    //testImplementation "androidx.room:room-testing:$androidx_room"
 
     // Material
     implementation "com.google.android.material:material:$android_material"
@@ -215,17 +215,17 @@ dependencies {
 
     implementation 'pub.devrel:easypermissions:3.0.0'
 
-    implementation 'org.ocpsoft.prettytime:prettytime:5.0.2.Final'
+    //implementation 'org.ocpsoft.prettytime:prettytime:5.0.2.Final'
 
     // Firebase
-    implementation 'com.google.firebase:firebase-analytics:19.0.1'
-    implementation 'com.google.firebase:firebase-messaging:22.0.0'
+    //implementation 'com.google.firebase:firebase-analytics:19.0.1'
+    //implementation 'com.google.firebase:firebase-messaging:22.0.0'
 
     // Crashlytics
-    implementation 'com.google.firebase:firebase-crashlytics:18.2.1'
+    //implementation 'com.google.firebase:firebase-crashlytics:18.2.1'
 
     // Video Compression
-    implementation 'com.github.AbedElazizShe:LightCompressor:0.3.0'
+    //implementation 'com.github.AbedElazizShe:LightCompressor:0.3.0'
 
     // ExoPlayer
     implementation "com.google.android.exoplayer:exoplayer-core:$exoplayer_version"
@@ -243,7 +243,7 @@ dependencies {
     //implementation 'com.tinder.scarlet:lifecycle-android:0.1.11'
 
     //developImplementation 'com.squareup.leakcanary:leakcanary-android:2.4'
-    implementation 'com.wdullaer:materialdatetimepicker:4.2.3'
+    //implementation 'com.wdullaer:materialdatetimepicker:4.2.3'
 
     //implementation 'com.facebook.android:facebook-share:7.1.0'
 }
